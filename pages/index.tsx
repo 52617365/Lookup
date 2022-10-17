@@ -1,10 +1,8 @@
-import type {NextPage} from 'next'
-import Footer from "../components/Footer";
+import type { NextPage } from "next";
+import LoginForm from "../components/LoginForm";
 
 const Home: NextPage = () => {
-    return (
-        <Footer/>
-    )
-}
+  return <LoginForm />;
+};
 
-export default Home
+export default Home;
