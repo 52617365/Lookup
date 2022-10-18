@@ -5,8 +5,8 @@ export default function LookupOptions() {
             <div>
                 <label className="swap float-left">
                     <input type="checkbox"/>
-                    <div className="swap-on">Strict</div>
-                    <div className="swap-off">Wildcard</div>
+                    <div className="swap-on">Wildcard</div>
+                    <div className="swap-off">Strict</div>
                 </label>
                 <div className={"float-left"}>
                 </div>
