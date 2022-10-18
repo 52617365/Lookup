@@ -7,13 +7,9 @@ const Lookup: NextPage = () => {
     return (
         <>
             <Topnav/>
-            <div className="w-full">
-                <div className="text-center">
-                    <span className={"w-1/3"}>
-                        <LookupOptions/>
-                    </span>
-                    <TextInput placeholderText="Search for anything"/>
-                </div>
+            <LookupOptions/>
+            <div className="text-center">
+                <TextInput placeholderText="Search for anything"/>
             </div>
         </>
     );
