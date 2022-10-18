@@ -4,9 +4,10 @@ import TextInput from "../components/TextInput";
 import LookupOptions from "../components/LookupOptions";
 
 const Lookup: NextPage = () => {
+    const topNavLinks: Array<Options> = [{link: "/data", text: "List of data"}, {link: "/logout", text: "Log out"}]
     return (
         <>
-            <Topnav/>
+            <Topnav options={topNavLinks}/>
             <LookupOptions/>
             <div className="text-center">
                 <TextInput placeholderText="Search for anything"/>
