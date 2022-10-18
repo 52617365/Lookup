@@ -3,11 +3,10 @@ export default function LookupOptions() {
     return (
         <div className="grid h-20 flex-grow card rounded-box place-items-center">
             <div>
-                <p className={"inline-block pl-2"}>Strict</p>
                 <label className="swap float-left">
                     <input type="checkbox"/>
-                    <div className="swap-on">ON</div>
-                    <div className="swap-off">OFF</div>
+                    <div className="swap-on">Strict</div>
+                    <div className="swap-off">Wildcard</div>
                 </label>
                 <div className={"float-left"}>
                 </div>
