@@ -10,6 +10,7 @@ const Lookup: NextPage = () => {
             <LookupOptions/>
             <div className="text-center">
                 <TextInput placeholderText="Search for anything"/>
+                <button className="btn">Search</button>
             </div>
         </>
     );
