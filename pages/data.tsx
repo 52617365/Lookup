@@ -1,15 +1,26 @@
-import {NextPage} from "next/types";
 import DataTable from "../components/DataTable";
 import Topnav from "../components/Topnav";
-// TODO: Statically render maybe?
-const Data: NextPage = () => {
+
+function Data({dataList}: { dataList: Array<ApiDataFields> }) {
     const topNavLinks: Array<Options> = [{link: "/lookup", text: "Lookup"}, {link: "/logout", text: "Log out"}]
     return (
         <>
             <Topnav options={topNavLinks}/>
-            <DataTable/>
+            <DataTable dataList={dataList}/>
         </>
     )
+}
+
+export async function getStaticProps() {
+    const res = await fetch('http://localhost:3000/api/lookup')
+    const deserialized: LookupApiResponse = await res.json()
+    const dataList = deserialized.data
+
+    return {
+        props: {
+            dataList,
+        },
+    }
 }
 
 export default Data;

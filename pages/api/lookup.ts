@@ -1,9 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type {NextApiRequest, NextApiResponse} from 'next'
-import {MongoClient} from "mongodb";
+import {MongoClient, WithId} from "mongodb";
 
-
-// TODO: make mongo connection work.
 async function listData(client: MongoClient) {
     const database = client.db('lookup');
     return database.collection('data').find().toArray()
@@ -11,7 +9,7 @@ async function listData(client: MongoClient) {
 
 export default async function handler(
     req: NextApiRequest,
-    res: NextApiResponse<Data>
+    res: NextApiResponse<WithId<Document> | unknown>
 ) {
     const uri = `mongodb://localhost:27017`
     const client = new MongoClient(uri)
