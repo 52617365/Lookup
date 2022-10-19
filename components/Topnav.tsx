@@ -9,9 +9,9 @@ export default function Topnav({options}: { options: Array<Options> }) {
                 </div>
                 <div className="flex-none">
                     <ul className="menu menu-horizontal p-0-10">
-                        {options.map((option: Options) => {
+                        {options.map((option: Options, index: number) => {
                             return (
-                                <li>
+                                <li key={index}>
                                     <Link href={option.link}>
                                         <a>{option.text}</a>
                                     </Link>
