@@ -1,26 +1,14 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type {NextApiRequest, NextApiResponse} from 'next'
-import {MongoClient, WithId} from "mongodb";
+import {MongoClient} from "mongodb";
 
-
-type Data = {
-    data: WithId<Document> | unknown
-}
-
-type DataFormat = {
-    databases: Array<DatabaseContents>
-}
-type DatabaseContents = {
-    name: string
-}
 
 // TODO: make mongo connection work.
 async function listData(client: MongoClient) {
     const database = client.db('lookup');
-    const data = database.collection('data');
-    console.log(data)
-    const query = {_id: '634f964ca0721f16f220d426'};
-    return await data.findOne(query)
+    const collection = database.collection('data');
+    const data = collection.find()
+    return data
 }
 
 export default async function handler(
