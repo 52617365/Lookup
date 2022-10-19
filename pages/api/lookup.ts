@@ -6,16 +6,14 @@ import {MongoClient} from "mongodb";
 // TODO: make mongo connection work.
 async function listData(client: MongoClient) {
     const database = client.db('lookup');
-    const collection = database.collection('data');
-    const data = collection.find()
-    return data
+    return database.collection('data').find().toArray()
 }
 
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<Data>
 ) {
-    const uri = `mongodb+srv://localhost/`
+    const uri = `mongodb://localhost:27017`
     const client = new MongoClient(uri)
     try {
         await client.connect();
