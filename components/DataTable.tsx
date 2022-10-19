@@ -1,4 +1,4 @@
-export default function DataTable() {
+export default function DataTable({dataList}: { dataList: Array<ApiDataFields> }) {
     return (
         <div className="overflow-x-auto">
             <table className="table table-compact w-full">
@@ -10,21 +10,15 @@ export default function DataTable() {
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>Database 1</td>
-                    <td>18.10.2022</td>
-                    <td>822,822</td>
-                </tr>
-                <tr>
-                    <td>Database 2</td>
-                    <td>28.10.2022</td>
-                    <td>1,822,822</td>
-                </tr>
-                <tr>
-                    <td>Database 3</td>
-                    <td>02.11.2022</td>
-                    <td>1,222,822</td>
-                </tr>
+                {dataList.map((data: ApiDataFields) => {
+                    return (
+                        <tr>
+                            <td>{data.name}</td>
+                            <td>{data.breach_date}</td>
+                            <td>{data.lines}</td>
+                        </tr>
+                    )
+                })}
                 </tbody>
             </table>
         </div>
