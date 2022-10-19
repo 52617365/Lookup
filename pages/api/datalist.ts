@@ -11,5 +11,15 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<WithId<Document> | unknown>
 ) {
-
+    const uri = `mongodb://localhost:27017`
+    const client = new MongoClient(uri)
+    try {
+        await client.connect();
+        const data = await listData(client);
+        res.status(200).json({data: data})
+    } catch (e: any) {
+        res.status(404).json({data: e})
+    } finally {
+        await client.close()
+    }
 }
