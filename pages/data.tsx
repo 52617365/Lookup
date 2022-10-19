@@ -12,7 +12,7 @@ function Data({dataList}: { dataList: Array<ApiDataFields> }) {
 }
 
 export async function getStaticProps() {
-    const res = await fetch('http://localhost:3000/api/lookup')
+    const res = await fetch('http://localhost:3000/api/datalist') // This will not be used for users so TODO: restrict it to only here.
     const deserialized: LookupApiResponse = await res.json()
     const dataList = deserialized.data
 
