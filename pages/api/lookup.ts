@@ -7,9 +7,14 @@ async function listData(client: MongoClient) {
     return database.collection('data').find().toArray()
 }
 
+
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<WithId<Document> | unknown>
 ) {
-
+    if (req.method !== 'POST') {
+        res.status(405).send({message: 'Only POST requests allowed'})
+        return
+    }
+    const body: RequestBody = req.body
 }

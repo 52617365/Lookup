@@ -16,3 +16,7 @@ type ApiDataFields = {
     breach_date: string
     data: Array<object>
 }
+type RequestBody = {
+    queryType: string
+    query: string
+}
