@@ -13,7 +13,7 @@ const Lookup: NextPage = () => {
             <div className="text-center">
                 <TextInput placeholderText="Search for anything"/>
                 <button className="btn">Search</button>
-                <div className="grid grid-cols-2 gap-4 pt-5 pr-5 pl-5">
+                <div className="grid grid-cols-2 gap-4">
                     <div className="...">
                         <Table/>
                     </div>
