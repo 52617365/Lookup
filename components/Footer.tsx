@@ -4,7 +4,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 export default function Footer() {
     return (
-        <footer className="footer footer-center p-2 text-base-content bottom-0 fixed bg-base-200">
+        <footer className="footer footer-center p-2 text-base-content bottom-0 bg-base-200">
             <div>
                 <p>Copyright © 2022 - All right reserved</p>
                 <p>Created by Rase</p>
