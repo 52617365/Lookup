@@ -2,7 +2,9 @@ export default function Table() {
     return (
         <div className="overflow-x-auto">
             <div className="indicator">
-                <span className="indicator-item badge badge-primary mt-2">database</span>
+                {/* TODO: these should be dynamic */}
+                <span className="indicator-item badge badge-primary mt-2.5">database</span>
+                <span className="indicator-item indicator-bottom badge badge-secondary mb-2.5">2019</span>
                 <table className="table w-52 border">
                     <thead>
                     <tr>
