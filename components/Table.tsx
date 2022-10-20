@@ -10,7 +10,7 @@ function Indicator() {
 export default function Table() {
     return (
         <div className="overflow-x-auto">
-            <table className="table w-full">
+            <table className="table w-52 border">
                 <thead>
                 <tr>
                     <th></th>
