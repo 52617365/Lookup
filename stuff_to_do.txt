@@ -1,0 +1,3 @@
+- Make the functionality work.
+- Sort the database query stuff out.
+- Add copy button to the result table to copy the results.
