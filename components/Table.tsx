@@ -13,6 +13,7 @@ export default function Table() {
             <table className="table w-52 border">
                 <thead>
                 <tr>
+                    {/* TODO: these should be dynamically rendered */}
                     <th></th>
                     <th>Name</th>
                     <th>Job</th>
@@ -20,6 +21,7 @@ export default function Table() {
                 </tr>
                 </thead>
                 <tbody>
+                {/* TODO: these should be dynamically rendered */}
                 <tr>
                     <th>1</th>
                     <td>Cy Ganderton</td>
