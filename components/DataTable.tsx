@@ -7,15 +7,19 @@ export default function DataTable({dataList}: { dataList: Array<ApiDataFields> }
                     <th>Name</th>
                     <th>Breach date</th>
                     <th>Lines</th>
+                    <th>Added to lookup</th>
                 </tr>
                 </thead>
                 <tbody>
-                {dataList.map((data: ApiDataFields) => {
+                {dataList.map((data: ApiDataFields, index: number) => {
+                    const timeAddedToDate = new Date(data.added);
+                    const timeToShow = `${timeAddedToDate.getDay()}.${timeAddedToDate.getMonth()}.${timeAddedToDate.getFullYear()}`
                     return (
-                        <tr>
+                        <tr key={index}>
                             <td>{data.name}</td>
                             <td>{data.breach_date}</td>
                             <td>{data.lines}</td>
+                            <td>{timeToShow}</td>
                         </tr>
                     )
                 })}

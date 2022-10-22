@@ -14,7 +14,7 @@ type ApiDataFields = {
     name: string
     lines: string
     breach_date: string
-    data: Array<object>
+    added: string
 }
 type RequestBody = {
     strict: boolean
