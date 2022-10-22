@@ -18,5 +18,6 @@ type ApiDataFields = {
 }
 type RequestBody = {
     strict: boolean
+    queryType: string
     query: string
 }
