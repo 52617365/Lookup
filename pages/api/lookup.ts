@@ -1,11 +1,8 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type {NextApiRequest, NextApiResponse} from 'next'
-import {Db, MongoClient, WithId} from "mongodb";
-import lookUpModeIsInvalid from "../../lib/lookupUserInput";
+import {MongoClient, WithId} from "mongodb";
+import userRequestIsInvalid from "../../lib/validateLookupRequest";
 
-async function getResultsFromQuery(database: Db, query: string) {
-    return database.collection('data').find({$text: {$search: query}}).toArray()
-}
 
 export default async function handler(
     req: NextApiRequest,
@@ -14,19 +11,13 @@ export default async function handler(
     const uri = `mongodb://localhost:27017`
     const client = new MongoClient(uri)
     const database = client.db('lookup');
-    try {
-        if (req.method !== 'POST') {
-            res.status(405).send({message: 'Only POST requests allowed'})
-            return
-        }
-        const body: RequestBody = req.body
-        if (body.query == null || body.queryType == null || lookUpModeIsInvalid(body.queryType)) {
-            res.status(400).send({message: 'Request body format was invalid'})
-            return
-        }
+    if (userRequestIsInvalid(req, res)) {
+        return
+    }
 
-        const results = await getResultsFromQuery(database, body.query)
-        res.status(200).send({data: results})
+    try {
+        // const results = await getResultsFromQuery(database, req.body.query)
+        res.status(200).send({data: "todo"})
     } catch (e) {
         res.status(404).json({data: e})
     } finally {
