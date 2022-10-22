@@ -2,7 +2,7 @@
 import type {NextApiRequest, NextApiResponse} from 'next'
 import {MongoClient, WithId} from "mongodb";
 import userRequestIsInvalid from "../../lib/validateLookupRequest";
-
+import getResultsFromQueryTypeAll from "../../lib/lookupQuery"
 
 export default async function handler(
     req: NextApiRequest,
@@ -10,14 +10,16 @@ export default async function handler(
 ) {
     const uri = `mongodb://localhost:27017`
     const client = new MongoClient(uri)
-    const database = client.db('lookup');
+    const database = client.db('lookup')
+
     if (userRequestIsInvalid(req, res)) {
         return
     }
 
     try {
-        // const results = await getResultsFromQuery(database, req.body.query)
-        res.status(200).send({data: "todo"})
+        console.log(`${req.body.query} ${req.body.strict} ${req.body.queryType}`)
+        const results = await getResultsFromQueryTypeAll(database, req.body.query, req.body.strict)
+        res.status(200).send({data: results})
     } catch (e) {
         res.status(404).json({data: e})
     } finally {

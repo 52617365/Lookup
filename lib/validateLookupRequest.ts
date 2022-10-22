@@ -1,7 +1,7 @@
 import {NextApiRequest, NextApiResponse} from "next";
 import {WithId} from "mongodb";
 
-function lookUpModeIsInvalid(mode: string) {
+function lookUpModeIsInvalid(mode: string): boolean {
     const allowedModes = ["all", "username", "password", "ipaddress", "facebookid", "linkedin", "zipcode", "phonenumber"]
     return !allowedModes.includes(mode);
 }
