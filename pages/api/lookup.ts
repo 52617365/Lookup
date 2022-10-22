@@ -1,19 +1,10 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type {NextApiRequest, NextApiResponse} from 'next'
 import {Db, MongoClient, WithId} from "mongodb";
+import lookUpModeIsInvalid from "../../lib/lookupUserInput";
 
 async function getResultsFromQuery(database: Db, query: string) {
     return database.collection('data').find({$text: {$search: query}}).toArray()
-}
-
-
-/*
-   Avoiding manual requests trying to poke with API.
- */
-
-function lookUpModeIsInvalid(mode: string) {
-    const allowedModes = ["all", "username", "password", "ipaddress", "facebookid", "linkedin", "zipcode", "phonenumber"]
-    return !allowedModes.includes(mode);
 }
 
 export default async function handler(
