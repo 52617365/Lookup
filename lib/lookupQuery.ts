@@ -3,7 +3,6 @@ import {Db} from "mongodb";
 /*
     Queries for the following criteria:
     "username", "password", "ipaddress", "facebookid", "linkedin", "zipcode", "phonenumber"
-
  */
 
 
