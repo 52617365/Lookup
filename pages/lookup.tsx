@@ -5,6 +5,9 @@ import LookupOptions from "../components/LookupOptions";
 import Table from "../components/Table";
 import {useState} from "react";
 
+
+// TODO: the result tables should scale accordingly depending on user resolution.
+// E.g. show n amount of rows side by side depending on user resolution.
 async function requestToEndpoint(query: string, queryType: string, strict: boolean) {
     const rawResponse = await fetch('http://localhost:3000/api/lookup', { //TODO: change url to something real once hosted.
         method: 'POST',
@@ -41,7 +44,8 @@ const Lookup: NextPage = () => {
                 <TextInput placeholderText="Search for anything"/>
                 <button className="btn" onClick={() => fetchFromMongo("todo", "todo", false)}>Search</button>
                 {/*TODO: set parameters here*/}
-                <div className="grid grid-cols-2 gap-4 pt-5">
+                {/*<div className="grid grid-cols-2 gap-4 pt-5 ">*/}
+                <div className="grid row-start-2 row-end-auto pt-5 ">
                     <div className="...">
                         <Table/>
                     </div>
