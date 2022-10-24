@@ -1,4 +1,5 @@
 import { NextPage } from "next/types";
+import { useRef } from "react";
 import Topnav from "../components/Topnav";
 import TextInput from "../components/TextInput";
 import LookupOptions from "../components/LookupOptions";
@@ -55,6 +56,12 @@ const Lookup: NextPage = () => {
   //     }
   //   };
 
+  const sendForm = () => {
+    const query = lookupInputRef!.current?.value;
+    console.log(query);
+  };
+
+  const lookupInputRef = useRef<HTMLInputElement>(null); // to capture look up query.
   return (
     <>
       <Topnav options={topNavLinks} />
@@ -63,8 +70,12 @@ const Lookup: NextPage = () => {
         <div className="text-center">
           <LookUpOptionButtons />
         </div>
-        <TextInput placeholderText="Search for anything" />
+        <TextInput
+          placeholderText="Search for anything"
+          inputRef={lookupInputRef}
+        />
         <button
+          onClick={sendForm}
           className="btn"
           // TODO: get parameters here from the fields.
           //   onClick={() => fetchFromMongo("todo", "todo", false)}

@@ -2,6 +2,8 @@ type Mode = {
   name: string;
   id: string;
 };
+
+// The ids here should be the same as the fields in db so we don't have to handle that later.
 const modes: Array<Mode> = [
   { name: "username", id: "username" },
   {
