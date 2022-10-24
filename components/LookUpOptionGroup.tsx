@@ -1,3 +1,5 @@
+import { EventHandler } from "react";
+
 type Mode = {
   name: string;
   id: string;
@@ -14,16 +16,23 @@ const modes: Array<Mode> = [
   { name: "ip", id: "ipaddress" },
   { name: "domain", id: "domain" },
 ];
-export default function LookUpOptionButtons() {
+export default function LookUpOptionButtons({
+  lookupOptionState,
+}: {
+  lookupOptionState: any;
+}) {
   // We will add more modes here once we figure out what they are.
   return (
-    <div className="btn-group">
+    <div
+      className="btn-group"
+      onChange={(e) => lookupOptionState((e.target as HTMLInputElement).value)}
+    >
       {modes.map((mode: Mode) => {
         return (
           <input
             type="radio"
             name="options"
-            id={mode.id}
+            value={mode.id}
             data-title={mode.name}
             className="btn"
           />

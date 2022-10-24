@@ -35,6 +35,7 @@ const Lookup: NextPage = () => {
     { link: "/data", text: "List of data" },
     { link: "/logout", text: "Log out" },
   ];
+  const [lookupOption, setLookupOption] = useState("");
 
   //   const [databaseResults, setResults] = useState([]);
   //   const [databaseResultError, setError] = useState(false);
@@ -55,15 +56,19 @@ const Lookup: NextPage = () => {
   //     }
   //   };
 
-  const lookupInputRef = useRef<HTMLInputElement>(null); // to capture look up query.
+  const captureLookUpQueryRef = useRef<HTMLInputElement>(null);
   const searchButtonHandler = () => {
-    const lookupQuery = lookupInputRef!.current?.value;
+    const lookupQuery = captureLookUpQueryRef!.current?.value;
     if (lookupQuery == undefined || lookupQuery == "") {
-      console.log("nothing provided"); // TODO: show to user or something.
+      console.log("no query provided"); // TODO: show to user or something.
       return;
     }
-
+    if (lookupOption == "") {
+      console.log("no mode provided");
+      return;
+    }
     console.log(lookupQuery);
+    console.log(lookupOption);
   };
 
   return (
@@ -72,16 +77,16 @@ const Lookup: NextPage = () => {
       <LookupOptions />
       <div className="text-center">
         <div className="text-center">
-          <LookUpOptionButtons />
+          <LookUpOptionButtons lookupOptionState={setLookupOption} />
         </div>
         <TextInput
           placeholderText="Search for anything"
-          inputRef={lookupInputRef}
+          inputRef={captureLookUpQueryRef}
         />
         <button onClick={searchButtonHandler} className="btn">
           Search
         </button>
-        <div className="grid sm:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4 pt-5 ">
+        <div className="grid sm:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4 pt-5">
           {/* <div className="...">
             <Table />
           </div>
