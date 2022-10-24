@@ -1,41 +1,19 @@
 export default function LookUpOptionButtons() {
+  // We will add more modes here once we figure out what they are.
+  const modes = ["username", "password", "email", "ipaddress", "domain"];
   return (
     <div className="btn-group">
-      <input
-        type="radio"
-        name="options"
-        id="username"
-        data-title="username"
-        className="btn"
-      />
-      <input
-        type="radio"
-        id="password"
-        name="options"
-        data-title="password"
-        className="btn"
-      />
-      <input
-        type="radio"
-        name="options"
-        data-title="email"
-        className="btn"
-        id="email"
-      />
-      <input
-        type="radio"
-        name="options"
-        data-title="ip"
-        className="btn"
-        id="ipaddress"
-      />
-      <input
-        type="radio"
-        name="options"
-        data-title="domain"
-        className="btn"
-        id="domain"
-      />
+      {modes.map((mode: string) => {
+        return (
+          <input
+            type="radio"
+            name="options"
+            id={mode}
+            data-title={mode}
+            className="btn"
+          />
+        );
+      })}
     </div>
   );
 }
