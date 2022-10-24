@@ -58,6 +58,10 @@ const Lookup: NextPage = () => {
 
   const sendForm = () => {
     const query = lookupInputRef!.current?.value;
+    if (query == undefined || query == "") {
+      console.log("nothing provided");
+      return;
+    }
     console.log(query);
   };
 
