@@ -55,16 +55,17 @@ const Lookup: NextPage = () => {
   //     }
   //   };
 
-  const sendForm = () => {
-    const query = lookupInputRef!.current?.value;
-    if (query == undefined || query == "") {
-      console.log("nothing provided");
+  const lookupInputRef = useRef<HTMLInputElement>(null); // to capture look up query.
+  const searchButtonHandler = () => {
+    const lookupQuery = lookupInputRef!.current?.value;
+    if (lookupQuery == undefined || lookupQuery == "") {
+      console.log("nothing provided"); // TODO: show to user or something.
       return;
     }
-    console.log(query);
+
+    console.log(lookupQuery);
   };
 
-  const lookupInputRef = useRef<HTMLInputElement>(null); // to capture look up query.
   return (
     <>
       <Topnav options={topNavLinks} />
@@ -77,16 +78,11 @@ const Lookup: NextPage = () => {
           placeholderText="Search for anything"
           inputRef={lookupInputRef}
         />
-        <button
-          onClick={sendForm}
-          className="btn"
-          // TODO: get parameters here from the fields.
-          //   onClick={() => fetchFromMongo("todo", "todo", false)}
-        >
+        <button onClick={searchButtonHandler} className="btn">
           Search
         </button>
         <div className="grid sm:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4 pt-5 ">
-          <div className="...">
+          {/* <div className="...">
             <Table />
           </div>
           <div className="...">
@@ -100,7 +96,7 @@ const Lookup: NextPage = () => {
           </div>
           <div className="...">
             <Table />
-          </div>
+          </div> */}
         </div>
       </div>
     </>
