@@ -1,5 +1,3 @@
-import { EventHandler } from "react";
-
 type Mode = {
   name: string;
   id: string;
