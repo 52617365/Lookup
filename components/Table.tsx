@@ -1,6 +1,7 @@
 export default function Table() {
   return (
     // TODO: add sizing depending on resolution here onto tables, else it goes off of the screen on mobile.
+    // This is definitely not a priority though.
     <div className="overflow-x-auto">
       <div className="indicator">
         {/* TODO: these should be dynamic */}
