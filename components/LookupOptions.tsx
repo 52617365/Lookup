@@ -8,18 +8,18 @@ function renderStrictOrWildcard(isChecked: boolean) {
   }
 }
 export default function LookupOptions({
-  isStrict,
-  setStrict,
+  isWildcard,
+  setWildcard,
 }: {
-  isStrict: any;
-  setStrict: any;
+  isWildcard: any;
+  setWildcard: any;
 }) {
   return (
     <div className="grid h-20 flex-grow card rounded-box place-items-center">
       <div>
         <label className="swap float-left swap-rotate">
-          <input type="checkbox" onChange={() => setStrict(!isStrict)} />
-          {renderStrictOrWildcard(isStrict)}
+          <input type="checkbox" onChange={() => setWildcard(!isWildcard)} />
+          {renderStrictOrWildcard(isWildcard)}
         </label>
       </div>
     </div>

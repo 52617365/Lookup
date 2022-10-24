@@ -36,6 +36,7 @@ const Lookup: NextPage = () => {
     { link: "/logout", text: "Log out" },
   ];
   const [lookupOption, setLookupOption] = useState("");
+  const [isWildcard, setWildcard] = useState(false);
 
   //   const [databaseResults, setResults] = useState([]);
   //   const [databaseResultError, setError] = useState(false);
@@ -67,19 +68,16 @@ const Lookup: NextPage = () => {
       console.log("no mode provided"); // TODO: show to user or something.
       return;
     }
-    const strictSearch = !isStrict; // We reverse the boolean to be opposite cuz for some reason it's the exact opposite.
     // TODO: query with the settings.
     console.log(`query: ${lookupQuery}`);
     console.log(`option: ${lookupOption}`);
-    console.log(`strict: ${!isStrict}`);
+    console.log(`wildcard: ${isWildcard}`);
   };
-
-  const [isStrict, setStrict] = useState(false);
 
   return (
     <>
       <Topnav options={topNavLinks} />
-      <LookupOptions isStrict={isStrict} setStrict={setStrict} />
+      <LookupOptions isWildcard={isWildcard} setWildcard={setWildcard} />
       {console.log()}
       <div className="text-center">
         <div className="text-center">
