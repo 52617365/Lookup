@@ -36,7 +36,6 @@ const Lookup: NextPage = () => {
     { link: "/logout", text: "Log out" },
   ];
 
-  //   const [lookupQuery, setQuery] = useState("");
   //   const [databaseResults, setResults] = useState([]);
   //   const [databaseResultError, setError] = useState(false);
 
@@ -86,22 +85,22 @@ const Lookup: NextPage = () => {
         >
           Search
         </button>
-      </div>
-      <div className="grid sm:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4 pt-5 ">
-        <div className="...">
-          <Table />
-        </div>
-        <div className="...">
-          <Table />
-        </div>
-        <div className="...">
-          <Table />
-        </div>
-        <div className="...">
-          <Table />
-        </div>
-        <div className="...">
-          <Table />
+        <div className="grid sm:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4 pt-5 ">
+          <div className="...">
+            <Table />
+          </div>
+          <div className="...">
+            <Table />
+          </div>
+          <div className="...">
+            <Table />
+          </div>
+          <div className="...">
+            <Table />
+          </div>
+          <div className="...">
+            <Table />
+          </div>
         </div>
       </div>
     </>
