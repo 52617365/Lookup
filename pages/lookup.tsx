@@ -5,7 +5,7 @@ import TextInput from "../components/TextInput";
 import LookupOptions from "../components/LookupOptions";
 import Table from "../components/Table";
 import { useState } from "react";
-import LookUpOptionButtons from "../components/LookUpOptionGroup";
+import LookUpOptionButtons from "../components/LookUpOptionButtons";
 
 // TODO: the result tables should scale accordingly depending on user resolution.
 // E.g. show n amount of rows side by side depending on user resolution.
@@ -64,17 +64,23 @@ const Lookup: NextPage = () => {
       return;
     }
     if (lookupOption == "") {
-      console.log("no mode provided");
+      console.log("no mode provided"); // TODO: show to user or something.
       return;
     }
-    console.log(lookupQuery);
-    console.log(lookupOption);
+    const strictSearch = !isStrict; // We reverse the boolean to be opposite cuz for some reason it's the exact opposite.
+    // TODO: query with the settings.
+    console.log(`query: ${lookupQuery}`);
+    console.log(`option: ${lookupOption}`);
+    console.log(`strict: ${!isStrict}`);
   };
+
+  const [isStrict, setStrict] = useState(false);
 
   return (
     <>
       <Topnav options={topNavLinks} />
-      <LookupOptions />
+      <LookupOptions isStrict={isStrict} setStrict={setStrict} />
+      {console.log()}
       <div className="text-center">
         <div className="text-center">
           <LookUpOptionButtons lookupOptionState={setLookupOption} />

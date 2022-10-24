@@ -25,9 +25,10 @@ export default function LookUpOptionButtons({
       className="btn-group"
       onChange={(e) => lookupOptionState((e.target as HTMLInputElement).value)}
     >
-      {modes.map((mode: Mode) => {
+      {modes.map((mode: Mode, index: number) => {
         return (
           <input
+            key={index}
             type="radio"
             name="options"
             value={mode.id}
