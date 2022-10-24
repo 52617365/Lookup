@@ -3,19 +3,19 @@ export default function LookUpOptionButtons() {
     <div className="btn-group">
       <input
         type="radio"
-        name="username"
+        name="options"
         data-title="username"
         className="btn"
       />
       <input
         type="radio"
-        name="password"
+        name="options"
         data-title="password"
         className="btn"
       />
-      <input type="radio" name="email" data-title="email" className="btn" />
-      <input type="radio" name="ipaddress" data-title="ip" className="btn" />
-      <input type="radio" name="domain" data-title="domain" className="btn" />
+      <input type="radio" name="options" data-title="email" className="btn" />
+      <input type="radio" name="options" data-title="ip" className="btn" />
+      <input type="radio" name="options" data-title="domain" className="btn" />
     </div>
   );
 }
