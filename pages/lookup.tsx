@@ -7,7 +7,19 @@ import Table from "../components/Table";
 import { useState } from "react";
 import LookUpOptionButtons from "../components/LookUpOptionButtons";
 
-// TODO: the result tables should scale accordingly depending on user resolution.
+/* 26.10.2022 - 
+Have a function that renders database results, on top of this;
+ handle that we have actually fetched to avoid rendering "no results found"
+ on page load when user has not even queried yet.
+
+ FIXME: there is currently a problem where the first search button 
+    click does not register the new query options, 
+    the changed query options get changed on the second search click.
+ Fix it so that it always updates the settings on the first search button click
+*/
+
+// TODO: function to render database results into table.
+
 // E.g. show n amount of rows side by side depending on user resolution.
 async function requestToEndpoint(
   query: string,
@@ -38,27 +50,26 @@ const Lookup: NextPage = () => {
   const [lookupOption, setLookupOption] = useState("");
   const [isWildcard, setWildcard] = useState(false);
 
-  //   const [databaseResults, setResults] = useState([]);
-  //   const [databaseResultError, setError] = useState(false);
+  const [databaseResults, setResults] = useState([]);
 
-  //   const fetchFromMongo = async (
-  //     query: string,
-  //     queryType: string,
-  //     strict: boolean
-  //   ) => {
-  //     try {
-  //       const response = await requestToEndpoint(query, queryType, strict);
-  //       setResults(response);
-  //       setError(false);
-  //       return;
-  //     } catch (_) {
-  //       setError(true);
-  //       return;
-  //     }
-  //   };
+  const fetchFromMongo = async (
+    query: string,
+    queryType: string,
+    wildcard: boolean
+  ) => {
+    try {
+      console.log(`strict: ${!wildcard}`);
+      const response = await requestToEndpoint(query, queryType, !wildcard);
+      setResults(response);
+      return;
+    } catch (_) {
+      // TODO: handle this somehow, maybe by putting having an error or something.
+      return;
+    }
+  };
 
   const captureLookUpQueryRef = useRef<HTMLInputElement>(null);
-  const searchButtonHandler = () => {
+  const searchButtonHandler = async () => {
     const lookupQuery = captureLookUpQueryRef!.current?.value;
     if (lookupQuery == undefined || lookupQuery == "") {
       console.log("no query provided"); // TODO: show to user or something.
@@ -72,13 +83,14 @@ const Lookup: NextPage = () => {
     console.log(`query: ${lookupQuery}`);
     console.log(`option: ${lookupOption}`);
     console.log(`wildcard: ${isWildcard}`);
+    await fetchFromMongo(lookupQuery, lookupOption, isWildcard);
+    console.log(databaseResults);
   };
 
   return (
     <>
       <Topnav options={topNavLinks} />
       <LookupOptions isWildcard={isWildcard} setWildcard={setWildcard} />
-      {console.log()}
       <div className="text-center">
         <div className="text-center">
           <LookUpOptionButtons lookupOptionState={setLookupOption} />
@@ -87,10 +99,13 @@ const Lookup: NextPage = () => {
           placeholderText="Search for anything"
           inputRef={captureLookUpQueryRef}
         />
+        {/*  TODO: there is something wrong with the onClick handler when we submit multiple times.        */}
         <button onClick={searchButtonHandler} className="btn">
           Search
         </button>
         <div className="grid sm:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4 pt-5">
+          {/* TODO: render the items here into tables here from function*/}
+
           {/* <div className="...">
             <Table />
           </div>
