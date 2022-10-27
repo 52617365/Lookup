@@ -69,9 +69,6 @@ const Lookup: NextPage = () => {
     setFetched(true);
 
     try {
-      console.log(`strict: ${!isWildcard}`);
-      console.log(`query: ${lookupQuery}`);
-      console.log(`queryType: ${lookupOption}`);
       const response = await requestToEndpoint(
         lookupQuery as string,
         lookupOption,
@@ -92,29 +89,21 @@ const Lookup: NextPage = () => {
       <Topnav options={topNavLinks} />
       <LookupOptions isWildcard={isWildcard} setWildcard={setWildcard} />
       <div className="text-center">
-        <div className="text-center">
+        <div className="">
           <LookUpOptionButtons setLookupOptionState={setLookupOption} />
         </div>
         <TextInput
           placeholderText="Search for anything"
           inputRef={captureLookUpQueryRef}
         />
-        {/*  TODO: there is something wrong with the onClick handler when we submit multiple times.        */}
-
         <SearchButton
           searchButtonHandler={searchButtonHandler}
           isLoading={buttonIsLoading}
         />
-
-        {/* <button onClick={searchButtonHandler} className="btn">
-          Search
-        </button> */}
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4 pt-5">
-          {/* TODO: render the items here into tables here from function*/}
-          {renderDatabaseResults(databaseResults, isFetched, isDatabaseError)}
-          {/* <div className="...">
-            <Table />
-          </div> */}
+        <div className="grid place-items-center">
+          <div className="sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4 pt-5">
+            {renderDatabaseResults(databaseResults, isFetched, isDatabaseError)}
+          </div>
         </div>
       </div>
     </>
