@@ -18,20 +18,27 @@ Try to use next.js useSWR to do the fetching from the endpoint.
 */
 
 function renderDatabaseResults(
-  results: Array<any>,
+  results: LookupApiResponse | undefined,
   isFetched: boolean,
   isError: boolean
 ) {
-  if (isError) {
-    <p>There was an error fetching the databases</p>;
+  if (results == undefined) {
+    // I.e. if fetch has not completed yet.
+    return;
   }
-  if (results.length === 0 && !isFetched) {
+  console.log(results);
+  if (isError) {
+    return <p>There was an error fetching the databases</p>;
+  }
+  if (results.data.length === 0 && !isFetched) {
     return <></>;
   }
-  if (isFetched && results.length === 0) {
+  if (isFetched && results.data.length === 0) {
     return <p>No results found.</p>;
   }
-  return <p>{results}</p>;
+  return results.data.map((result: any, index: number) => {
+    return <p key={index}>{result.username}</p>;
+  });
 }
 
 const Lookup: NextPage = () => {
@@ -42,7 +49,7 @@ const Lookup: NextPage = () => {
   const [lookupOption, setLookupOption] = useState<string>("");
   const [isWildcard, setWildcard] = useState<boolean>(false);
 
-  const [databaseResults, setResults] = useState<Array<any>>([]); // TODO: make type for the results.
+  const [databaseResults, setResults] = useState<LookupApiResponse>(); // TODO: make type for the results.
   const [isDatabaseError, setDatabaseError] = useState<boolean>(false);
   const [isFetched, setFetched] = useState<boolean>(false);
   const [buttonIsLoading, setButtonLoading] = useState<boolean>(false);
@@ -106,7 +113,7 @@ const Lookup: NextPage = () => {
         </button> */}
         <div className="grid sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4 pt-5">
           {/* TODO: render the items here into tables here from function*/}
-          {/* {renderDatabaseResults(databaseResults)} */}
+          {renderDatabaseResults(databaseResults, isFetched, isDatabaseError)}
           {/* <div className="...">
             <Table />
           </div>
