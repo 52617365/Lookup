@@ -9,7 +9,7 @@ export default function Table({ result }: { result: any }) {
         <span className="indicator-item indicator-center badge badge-primary">
           {databaseName}
         </span>
-        <span className="indicator-item indicator-bottom indicator-center badge badge-secondary">
+        <span className="indicator-item indicator-bottom indicator-center badge badge-secondary w-24">
           {breachDate}
         </span>
         <table className="table table-compact w-full border">
