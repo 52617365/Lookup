@@ -5,6 +5,7 @@ function lookUpModeIsInvalid(mode: string): boolean {
   const allowedModes = [
     "username",
     "password",
+    "email",
     "ipaddress",
     "facebookid",
     "domain",
