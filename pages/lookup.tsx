@@ -5,6 +5,7 @@ import TextInput from "../components/TextInput";
 import LookupOptions from "../components/LookupOptions";
 import LookUpOptionButtons from "../components/LookUpOptionButtons";
 import isValidQuery from "../lib/validateQueryOptions";
+import requestToEndpoint from "../lib/queryEndpoint";
 
 /* 26.10.2022 - 
 Have a function that renders database results, on top of this;
@@ -13,30 +14,6 @@ Have a function that renders database results, on top of this;
 
 Try to use next.js useSWR to do the fetching from the endpoint.
 */
-
-// TODO: function to render database results into table.
-
-// E.g. show n amount of rows side by side depending on user resolution.
-async function requestToEndpoint(
-  query: string,
-  queryType: string,
-  strict: boolean
-) {
-  const rawResponse = await fetch("http://localhost:3000/api/lookup", {
-    //TODO: change url to something real once hosted.
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      strict: strict,
-      query: query,
-      queryType: queryType,
-    }),
-  });
-  return await rawResponse.json();
-}
 
 const Lookup: NextPage = () => {
   const topNavLinks: Array<Options> = [
