@@ -15,15 +15,17 @@ const modes: Array<Mode> = [
   { name: "domain", id: "domain" },
 ];
 export default function LookUpOptionButtons({
-  lookupOptionState,
+  setLookupOptionState,
 }: {
-  lookupOptionState: any;
+  setLookupOptionState: any; // TODO: figure out type.
 }) {
   // We will add more modes here once we figure out what they are.
   return (
     <div
       className="btn-group"
-      onChange={(e) => lookupOptionState((e.target as HTMLInputElement).value)}
+      onChange={(e) =>
+        setLookupOptionState((e.target as HTMLInputElement).value)
+      }
     >
       {modes.map((mode: Mode, index: number) => {
         return (

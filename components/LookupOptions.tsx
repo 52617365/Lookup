@@ -11,8 +11,8 @@ export default function LookupOptions({
   isWildcard,
   setWildcard,
 }: {
-  isWildcard: any;
-  setWildcard: any;
+  isWildcard: boolean;
+  setWildcard: any; // TODO: figure out type
 }) {
   return (
     <div className="grid h-20 flex-grow card rounded-box place-items-center">

@@ -2,9 +2,9 @@ export default function SearchButton({
   isLoading,
   searchButtonHandler,
 }: {
-  isLoading: any;
-  searchButtonHandler: any;
-}) {
+  isLoading: boolean;
+  searchButtonHandler: any; // TODO: figure out the type.
+}): JSX.Element {
   if (isLoading === true) {
     return <button className="btn loading"></button>;
   } else {

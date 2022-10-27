@@ -88,7 +88,7 @@ const Lookup: NextPage = () => {
       <LookupOptions isWildcard={isWildcard} setWildcard={setWildcard} />
       <div className="text-center">
         <div className="text-center">
-          <LookUpOptionButtons lookupOptionState={setLookupOption} />
+          <LookUpOptionButtons setLookupOptionState={setLookupOption} />
         </div>
         <TextInput
           placeholderText="Search for anything"

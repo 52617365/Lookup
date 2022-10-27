@@ -1,9 +1,11 @@
+import { RefObject } from "react";
+
 export default function TextInput({
   placeholderText,
   inputRef,
 }: {
   placeholderText: string;
-  inputRef: any;
+  inputRef: RefObject<HTMLInputElement>;
 }) {
   return (
     <input
