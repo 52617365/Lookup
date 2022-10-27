@@ -15,6 +15,10 @@ function lookUpModeIsInvalid(mode: string): boolean {
   return !allowedModes.includes(mode);
 }
 
+function onlySpaces(stringToCheck: string) {
+  return stringToCheck.trim().length === 0;
+}
+
 function requestBodyIsInvalid(
   req: NextApiRequest,
   res: NextApiResponse<WithId<Document> | unknown>
@@ -24,7 +28,8 @@ function requestBodyIsInvalid(
     body.query == null ||
     body.query == "" ||
     body.queryType == null ||
-    lookUpModeIsInvalid(body.queryType)
+    lookUpModeIsInvalid(body.queryType) ||
+    onlySpaces(body.query)
   );
 }
 
