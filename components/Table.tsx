@@ -4,15 +4,12 @@ export default function Table({ result }: { result: any }) {
   const databaseName = result["database"];
 
   return (
-    // TODO: add sizing depending on resolution here onto tables, else it goes off of the screen on mobile.
-    // This is definitely not a priority though.
     <div className="overflow-x-auto">
       <div className="indicator">
-        {/* TODO: these should be dynamic */}
-        <span className="indicator-item badge badge-primary mt-2.5">
+        <span className="indicator-item indicator-center badge badge-primary">
           {databaseName}
         </span>
-        <span className="indicator-item indicator-bottom badge badge-secondary mb-2.5">
+        <span className="indicator-item indicator-bottom indicator-center badge badge-secondary">
           {breachDate}
         </span>
         <table className="table table-compact w-full border">
@@ -27,7 +24,6 @@ export default function Table({ result }: { result: any }) {
                 );
               }
             })}
-            {/* TODO: these should be dynamically rendered */}
           </tbody>
         </table>
       </div>
