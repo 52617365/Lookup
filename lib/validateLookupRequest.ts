@@ -3,7 +3,6 @@ import { WithId } from "mongodb";
 
 function lookUpModeIsInvalid(mode: string): boolean {
   const allowedModes = [
-    "all",
     "username",
     "password",
     "ipaddress",
