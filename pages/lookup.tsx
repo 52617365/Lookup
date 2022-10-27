@@ -6,6 +6,7 @@ import LookupOptions from "../components/LookupOptions";
 import LookUpOptionButtons from "../components/LookUpOptionButtons";
 import isValidQuery from "../lib/validateQueryOptions";
 import requestToEndpoint from "../lib/queryEndpoint";
+import Table from "../components/Table";
 
 /* 26.10.2022 - 
 Have a function that renders database results, on top of this;
@@ -25,6 +26,7 @@ const Lookup: NextPage = () => {
 
   const [databaseResults, setResults] = useState([]);
   const [isDatabaseError, setDatabaseError] = useState(false);
+  const [isFetched, setFetched] = useState(false);
   const [buttonIsLoading, setButtonLoading] = useState(false);
 
   const fetchFromMongo = async (
@@ -33,6 +35,7 @@ const Lookup: NextPage = () => {
     wildcard: boolean
   ) => {
     setButtonLoading(true);
+    setFetched(true);
     try {
       console.log(`strict: ${!wildcard}`);
       const response = await requestToEndpoint(query, queryType, !wildcard);
@@ -76,9 +79,9 @@ const Lookup: NextPage = () => {
         </button>
         <div className="grid sm:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4 pt-5">
           {/* TODO: render the items here into tables here from function*/}
-          {/* <div className="...">
+          <div className="...">
             <Table />
-          </div> */}
+          </div>
         </div>
       </div>
     </>

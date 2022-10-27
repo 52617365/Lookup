@@ -5,7 +5,7 @@ export default function SearchButton({
   isLoading: any;
   searchButtonHandler: any;
 }) {
-  if (isLoading) {
+  if (isLoading === true) {
     return <button className="btn loading"></button>;
   } else {
     return (
