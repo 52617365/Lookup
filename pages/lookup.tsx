@@ -9,14 +9,6 @@ import requestToEndpoint from "../lib/queryEndpoint";
 import Table from "../components/Table";
 import SearchButton from "../components/SearchButton";
 
-/* 26.10.2022 - 
-Have a function that renders database results, on top of this;
- handle that we have actually fetched to avoid rendering "no results found"
- on page load when user has not even queried yet.
-
-Try to use next.js useSWR to do the fetching from the endpoint.
-*/
-
 function renderDatabaseResults(
   results: LookupApiResponse | undefined,
   isFetched: boolean,
@@ -35,9 +27,25 @@ function renderDatabaseResults(
   if (isFetched && results.data.length === 0) {
     return <p>No results found.</p>;
   }
-  return results.data.map((result: any) => {
-    return <Table result={result} />;
-  });
+
+  <div className="sm:grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 gap-4 pt-5"></div>;
+  if (results.data.length > 1) {
+    return (
+      <div className="sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4 pt-5">
+        {results.data.map((result: any) => {
+          return <Table result={result} />;
+        })}
+      </div>
+    );
+  } else {
+    return (
+      <div className="text-center">
+        {results.data.map((result: any) => {
+          return <Table result={result} />;
+        })}
+      </div>
+    );
+  }
 }
 
 const Lookup: NextPage = () => {
@@ -77,7 +85,6 @@ const Lookup: NextPage = () => {
       setResults(response);
       setDatabaseError(false);
     } catch (_) {
-      // TODO: handle this somehow, maybe by putting having an error or something.
       setDatabaseError(true);
     } finally {
       setButtonLoading(false);
@@ -100,11 +107,7 @@ const Lookup: NextPage = () => {
           searchButtonHandler={searchButtonHandler}
           isLoading={buttonIsLoading}
         />
-        <div className="grid place-items-center">
-          <div className="sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4 pt-5">
-            {renderDatabaseResults(databaseResults, isFetched, isDatabaseError)}
-          </div>
-        </div>
+        {renderDatabaseResults(databaseResults, isFetched, isDatabaseError)}
       </div>
     </>
   );
