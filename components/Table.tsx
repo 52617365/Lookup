@@ -3,7 +3,7 @@ function renderBreachDate(breachDate: string) {
     return <></>;
   }
   return (
-    <span className="indicator-item indicator-bottom indicator-center badge badge-secondary w-24">
+    <span className="indicator-item indicator-bottom indicator-center badge badge-secondary w-max">
       {breachDate}
     </span>
   );
@@ -13,7 +13,7 @@ function renderDatabaseName(databaseName: string) {
     return <></>;
   }
   return (
-    <span className="indicator-item indicator-center badge badge-primary">
+    <span className="indicator-item indicator-center badge badge-primary w-max">
       {databaseName}
     </span>
   );
