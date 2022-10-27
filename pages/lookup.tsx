@@ -36,7 +36,7 @@ function renderDatabaseResults(
     return <p>No results found.</p>;
   }
   return results.data.map((result: any, index: number) => {
-    return <p key={index}>{result.username}</p>;
+    return <Table result={result} />;
   });
 }
 

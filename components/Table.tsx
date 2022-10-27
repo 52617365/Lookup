@@ -1,4 +1,5 @@
-export default function Table() {
+export default function Table({ result }: { result: any }) {
+  const resultDynamicKeys = Object.keys(result);
   return (
     // TODO: add sizing depending on resolution here onto tables, else it goes off of the screen on mobile.
     // This is definitely not a priority though.
@@ -13,19 +14,15 @@ export default function Table() {
         </span>
         <table className="table table-compact w-full border">
           <tbody>
+            {resultDynamicKeys.map((dynamicKey: string) => {
+              return (
+                <tr>
+                  <td className="font-serif">{dynamicKey}:</td>
+                  <td>{result[dynamicKey]}</td>
+                </tr>
+              );
+            })}
             {/* TODO: these should be dynamically rendered */}
-            <tr>
-              <td className="font-serif">username:</td>
-              <td>Cy Ganderton</td>
-            </tr>
-            <tr>
-              <td className="font-serif">password:</td>
-              <td>Quality Control Specialist</td>
-            </tr>
-            <tr>
-              <td className="font-serif">email:</td>
-              <td>asd</td>
-            </tr>
           </tbody>
         </table>
       </div>
