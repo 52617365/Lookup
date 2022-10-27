@@ -1,3 +1,24 @@
+function renderBreachDate(breachDate: string) {
+  if (breachDate == null) {
+    return <></>;
+  }
+  return (
+    <span className="indicator-item indicator-bottom indicator-center badge badge-secondary w-24">
+      {breachDate}
+    </span>
+  );
+}
+function renderDatabaseName(databaseName: string) {
+  if (databaseName == null) {
+    return <></>;
+  }
+  return (
+    <span className="indicator-item indicator-center badge badge-primary">
+      {databaseName}
+    </span>
+  );
+}
+
 export default function Table({ result }: { result: any }) {
   const resultDynamicKeys = Object.keys(result);
   const breachDate = result["breachdate"];
@@ -6,12 +27,8 @@ export default function Table({ result }: { result: any }) {
   return (
     <div className="overflow-x-auto pt-5 pb-5">
       <div className="indicator">
-        <span className="indicator-item indicator-center badge badge-primary">
-          {databaseName}
-        </span>
-        <span className="indicator-item indicator-bottom indicator-center badge badge-secondary w-24">
-          {breachDate}
-        </span>
+        {renderDatabaseName(databaseName)}
+        {renderBreachDate(breachDate)}
         <table className="table table-compact w-full border">
           <tbody>
             {resultDynamicKeys.map((dynamicKey: string) => {
