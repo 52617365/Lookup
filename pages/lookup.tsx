@@ -77,8 +77,17 @@ const Lookup: NextPage = () => {
         <button onClick={searchButtonHandler} className="btn">
           Search
         </button>
-        <div className="grid sm:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4 pt-5">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4 pt-5">
           {/* TODO: render the items here into tables here from function*/}
+          <div className="...">
+            <Table />
+          </div>
+          <div className="...">
+            <Table />
+          </div>
+          <div className="...">
+            <Table />
+          </div>
           <div className="...">
             <Table />
           </div>
