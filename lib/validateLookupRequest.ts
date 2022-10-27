@@ -7,6 +7,7 @@ function lookUpModeIsInvalid(mode: string): boolean {
     "password",
     "ipaddress",
     "facebookid",
+    "domain",
     "linkedin",
     "zipcode",
     "phonenumber",

@@ -26,7 +26,6 @@ function renderDatabaseResults(
     // I.e. if fetch has not completed yet.
     return;
   }
-  console.log(results);
   if (isError) {
     return <p>There was an error fetching the databases</p>;
   }
@@ -115,15 +114,6 @@ const Lookup: NextPage = () => {
           {/* TODO: render the items here into tables here from function*/}
           {renderDatabaseResults(databaseResults, isFetched, isDatabaseError)}
           {/* <div className="...">
-            <Table />
-          </div>
-          <div className="...">
-            <Table />
-          </div>
-          <div className="...">
-            <Table />
-          </div>
-          <div className="...">
             <Table />
           </div> */}
         </div>
