@@ -28,24 +28,9 @@ function renderDatabaseResults(
     return <p>No results found.</p>;
   }
 
-  <div className="sm:grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 gap-4 pt-5"></div>;
-  if (results.data.length > 1) {
-    return (
-      <div className="sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4 pt-5">
-        {results.data.map((result: any) => {
-          return <Table result={result} />;
-        })}
-      </div>
-    );
-  } else {
-    return (
-      <div className="text-center">
-        {results.data.map((result: any) => {
-          return <Table result={result} />;
-        })}
-      </div>
-    );
-  }
+  return results.data.map((result: any) => {
+    return <Table result={result} />;
+  });
 }
 
 const Lookup: NextPage = () => {
@@ -96,7 +81,7 @@ const Lookup: NextPage = () => {
       <Topnav options={topNavLinks} />
       <LookupOptions isWildcard={isWildcard} setWildcard={setWildcard} />
       <div className="text-center">
-        <div className="">
+        <div>
           <LookUpOptionButtons setLookupOptionState={setLookupOption} />
         </div>
         <TextInput
@@ -107,7 +92,9 @@ const Lookup: NextPage = () => {
           searchButtonHandler={searchButtonHandler}
           isLoading={buttonIsLoading}
         />
-        {renderDatabaseResults(databaseResults, isFetched, isDatabaseError)}
+        <div className="flex flex-wrap align-center justify-center">
+          {renderDatabaseResults(databaseResults, isFetched, isDatabaseError)}
+        </div>
       </div>
     </>
   );
