@@ -35,7 +35,7 @@ function renderDatabaseResults(
   if (isFetched && results.data.length === 0) {
     return <p>No results found.</p>;
   }
-  return results.data.map((result: any, index: number) => {
+  return results.data.map((result: any) => {
     return <Table result={result} />;
   });
 }
@@ -62,7 +62,6 @@ const Lookup: NextPage = () => {
 
     const lookupQuery = captureLookUpQueryRef!.current?.value;
     if (!isValidQuery(lookupQuery, lookupOption)) {
-      console.log("error fetching"); // TODO: show to user or something.
       return;
     }
 
