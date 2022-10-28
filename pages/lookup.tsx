@@ -8,6 +8,8 @@ import isValidQuery from "../lib/validateQueryOptions";
 import requestToEndpoint from "../lib/queryEndpoint";
 import Table from "../components/Table";
 import SearchButton from "../components/SearchButton";
+import isUserLoggedIn from "../lib/login";
+import Link from "next/link";
 
 function renderDatabaseResults(
   results: LookupApiResponse | undefined,
@@ -34,6 +36,14 @@ function renderDatabaseResults(
 }
 
 const Lookup: NextPage = () => {
+  if (!isUserLoggedIn()) {
+    return (
+      <div className="flex items-center justify-center h-screen flex-wrap">
+        <Link href="/">You are unauthenticated, please login.</Link>
+      </div>
+    );
+  }
+
   const topNavLinks: Array<Options> = [
     { link: "/data", text: "List of data" },
     { link: "/logout", text: "Log out" },

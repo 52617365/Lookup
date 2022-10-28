@@ -1,16 +1,19 @@
-import '../styles/globals.css'
-import type {AppProps} from 'next/app'
-import {ThemeProvider} from "next-themes";
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
+import { ThemeProvider } from "next-themes";
+import { SessionProvider } from "next-auth/react";
 
-function MyApp({Component, pageProps}: AppProps) {
-    return (
-        <ThemeProvider defaultTheme="synthwave">
-            <div className={"relative"}>
-                <Component {...pageProps} />
-            </div>
-            {/*<Footer/>*/}
-        </ThemeProvider>
-    )
+function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+  return (
+    <ThemeProvider defaultTheme="synthwave">
+      <SessionProvider session={session}>
+        <div className={"relative"}>
+          <Component {...pageProps} />
+        </div>
+        {/*<Footer/>*/}
+      </SessionProvider>
+    </ThemeProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;

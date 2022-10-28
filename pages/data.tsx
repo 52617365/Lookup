@@ -1,7 +1,16 @@
 import DataTable from "../components/DataTable";
 import Topnav from "../components/Topnav";
+import isUserLoggedIn from "../lib/login";
+import Link from "next/link";
 
 function Data({ dataList }: { dataList: Array<DatabaseDataFields> }) {
+  if (!isUserLoggedIn()) {
+    return (
+      <div className="flex items-center justify-center h-screen flex-wrap">
+        <Link href="/">You are unauthenticated, please login.</Link>
+      </div>
+    );
+  }
   const topNavLinks: Array<Options> = [
     { link: "/lookup", text: "Lookup" },
     { link: "/logout", text: "Log out" },
