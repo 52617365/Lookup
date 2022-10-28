@@ -6,7 +6,7 @@ import { SessionProvider } from "next-auth/react";
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
     <ThemeProvider defaultTheme="synthwave">
-      <SessionProvider session={session}>
+      <SessionProvider session={session} refetchInterval={5 * 60}>
         <div className={"relative"}>
           <Component {...pageProps} />
         </div>
