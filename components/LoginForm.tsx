@@ -1,4 +1,5 @@
 import Link from "next/link";
+import GoogleIcon from "@mui/icons-material/Google";
 export default () => {
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
@@ -6,7 +7,12 @@ export default () => {
         <h1 className="text-3xl font-semibold text-center text-purple-700">
           Login
         </h1>
-
+        <div className="text-center pt-5 text-purple-700">
+          <Link href="">
+            Sign in with Gmail
+            <GoogleIcon />
+          </Link>
+        </div>
         <form className="mt-6">
           <div>
             <label htmlFor="email" className="block text-sm text-gray-800">
