@@ -8,9 +8,8 @@ export default () => {
           Login
         </h1>
         <div className="text-center pt-5 text-purple-700">
-          <Link href="">
-            Sign in with Gmail
-            <GoogleIcon />
+          <Link href="#">
+            Sign in with Gmail <GoogleIcon />
           </Link>
         </div>
         <form className="mt-6">
