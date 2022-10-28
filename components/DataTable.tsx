@@ -17,13 +17,13 @@ export default function DataTable({
         <tbody>
           {dataList.map((data: DatabaseDataFields, index: number) => {
             const timeAddedToDate = new Date(data.added);
-            const timeToShow = `${timeAddedToDate.getDay()}.${timeAddedToDate.getMonth()}.${timeAddedToDate.getFullYear()}`;
+            const timeAddedToLookupFormatted = `${timeAddedToDate.getDay()}.${timeAddedToDate.getMonth()}.${timeAddedToDate.getFullYear()}`;
             return (
               <tr key={index}>
                 <td>{data.name}</td>
                 <td>{data.breach_date}</td>
                 <td>{data.lines}</td>
-                <td>{timeToShow}</td>
+                <td>{timeAddedToLookupFormatted}</td>
               </tr>
             );
           })}

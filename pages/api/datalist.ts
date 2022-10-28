@@ -19,7 +19,6 @@ export default async function handler(
   try {
     await client.connect();
     const data = await listData(client);
-    console.log(data);
     res.status(200).json({ data: data });
   } catch (e: any) {
     res.status(404).json({ data: e });

@@ -33,6 +33,7 @@ export default function Table({ result }: { result: any }) {
           <tbody>
             {resultDynamicKeys.map((dynamicKey: string) => {
               if (!(dynamicKey == "database" || dynamicKey == "breachdate")) {
+                // we don't want to render these because they're already in the indicators.
                 return (
                   <tr>
                     <td className="font-serif">{dynamicKey}:</td>
