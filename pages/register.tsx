@@ -1,3 +1,4 @@
+import Link from "next/link";
 export default () => {
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
@@ -48,10 +49,13 @@ export default () => {
         </form>
         <p className="mt-8 text-xs font-light text-center text-gray-700">
           {" "}
-          Don't have an account?{" "}
-          <a href="#" className="font-medium text-purple-600 hover:underline">
-            Sign up
-          </a>
+          Already have an account?{" "}
+          <Link
+            className="font-medium text-purple-600 hover:underline"
+            href="/"
+          >
+            Login
+          </Link>
         </p>
       </div>
     </div>
