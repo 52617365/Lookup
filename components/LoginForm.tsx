@@ -1,71 +1,49 @@
-export default function LoginForm() {
+export default () => {
   return (
-    <section className="h-screen">
-      <div className="container px-6 py-12 h-full">
-        <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
-          <div className="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-              className="w-full"
-              alt="Phone image"
+    <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
+      <div className="w-full p-6 m-auto bg-white rounded shadow-lg ring-2 ring-purple-800/50 lg:max-w-md">
+        <h1 className="text-3xl font-semibold text-center text-purple-700">
+          Lookup
+        </h1>
+
+        <form className="mt-6">
+          <div>
+            <label htmlFor="email" className="block text-sm text-gray-800">
+              Email
+            </label>
+            <input
+              type="email"
+              className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
-          <div className="md:w-8/12 lg:w-5/12 lg:ml-20">
-            <form>
-              {/* <!-- Email input --> */}
-              <div className="mb-6">
-                <input
-                  type="text"
-                  className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                  placeholder="Email Address"
-                />
-              </div>
-
-              {/* <!-- Password input --> */}
-              <div className="mb-6">
-                <input
-                  type="password"
-                  className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                  placeholder="Password"
-                />
-              </div>
-
-              <div className="flex justify-between items-center mb-6">
-                <div className="form-group form-check">
-                  <input
-                    type="checkbox"
-                    defaultChecked={false}
-                    className="checkbox checkbox-sm align-middle"
-                    id="flexCheckDefault"
-                  />
-                  <label
-                    className="form-check-label inline-block text-blue-600 align-middle pl-2"
-                    htmlFor="flexCheckDefault"
-                  >
-                    Remember me
-                  </label>
-                </div>
-                <a
-                  href="#!"
-                  className="text-blue-600 hover:text-blue-700 focus:text-blue-700 active:text-blue-800 duration-200 transition ease-in-out"
-                >
-                  Forgot password?
-                </a>
-              </div>
-
-              {/* <!-- Submit button --> */}
-              <button
-                type="submit"
-                className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full"
-                data-mdb-ripple="true"
-                data-mdb-ripple-color="light"
-              >
-                Sign in
+          <div className="mt-4">
+            <div>
+              <label htmlFor="password" className="block text-sm text-gray-800">
+                Password
+              </label>
+              <input
+                type="password"
+                className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+              />
+            </div>
+            <a href="#" className="text-xs text-gray-600 hover:underline">
+              Forget Password?
+            </a>
+            <div className="mt-6">
+              <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
+                Login
               </button>
-            </form>
+            </div>
           </div>
-        </div>
+        </form>
+        <p className="mt-8 text-xs font-light text-center text-gray-700">
+          {" "}
+          Don't have an account?{" "}
+          <a href="#" className="font-medium text-purple-600 hover:underline">
+            Sign up
+          </a>
+        </p>
       </div>
-    </section>
+    </div>
   );
-}
+};
