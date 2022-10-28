@@ -14,7 +14,7 @@ export default () => {
             </label>
             <input
               disabled
-              placeholder="Available after beta"
+              placeholder="Currently only OAuth is supported"
               type="email"
               className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
@@ -26,7 +26,7 @@ export default () => {
               </label>
               <input
                 disabled
-                placeholder="Available after beta"
+                placeholder="Currently only OAuth is supported"
                 type="password"
                 className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
               />
