@@ -4,7 +4,7 @@ export default () => {
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
       <div className="w-full p-6 m-auto bg-white rounded shadow-lg ring-2 ring-purple-800/50 lg:max-w-md">
         <h1 className="text-3xl font-semibold text-center text-purple-700">
-          Lookup
+          Login
         </h1>
 
         <form className="mt-6">
