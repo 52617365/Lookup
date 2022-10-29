@@ -36,13 +36,13 @@ function renderDatabaseResults(
 }
 
 const Lookup: NextPage = () => {
-    if (!isUserLoggedIn()) {
-      return (
-        <div className="flex items-center justify-center h-screen flex-wrap">
-          <Link href="/">You are unauthenticated, please login.</Link>
-        </div>
-      );
-    }
+    // if (!isUserLoggedIn()) {
+    //   return (
+    //     <div className="flex items-center justify-center h-screen flex-wrap">
+    //       <Link href="/">You are unauthenticated, please login.</Link>
+    //     </div>
+    //   );
+    // }
 
     const topNavLinks: Array<Options> = [
         {link: "/data", text: "List of data"},

@@ -8,9 +8,6 @@ export default () => {
                     Login
                 </h1>
                 <div className="text-center pt-5 text-purple-700">
-                    <button onClick={() => signIn("discord")}>Sign in with Discord</button>
-                </div>
-                <div className="text-center pt-5 text-purple-700">
                     <button onClick={() => signIn("slack")}>Sign in with Slack</button>
                 </div>
                 <div className="text-center pt-5 text-purple-700">
