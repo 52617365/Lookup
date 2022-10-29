@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import {signIn} from "next-auth/react"
 export default () => {
     return (
         <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
@@ -8,13 +8,13 @@ export default () => {
                     Login
                 </h1>
                 <div className="text-center pt-5 text-purple-700">
-                    <Link href="#">Sign in with Discord</Link>
+                    <button onClick={() => signIn("discord")}>Sign in with Discord</button>
                 </div>
                 <div className="text-center pt-5 text-purple-700">
-                    <Link href="#">Sign in with Slack</Link>
+                    <button onClick={() => signIn("slack")}>Sign in with Slack</button>
                 </div>
                 <div className="text-center pt-5 text-purple-700">
-                    <Link href="#">Sign in with Github</Link>
+                    <button onClick={() => signIn("github")}>Sign in with Github</button>
                 </div>
                 <form className="mt-6">
                     <div>
