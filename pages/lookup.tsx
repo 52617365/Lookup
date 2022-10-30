@@ -12,6 +12,25 @@ import SearchButton from "../components/SearchButton";
 import isUserLoggedIn from "../lib/login";
 // import { performance } from 'perf_hooks';
 
+function renderQueryInformation(results: LookupApiResponse | undefined, isFetched: boolean, isError: boolean, timeTook: number) {
+    if (results == undefined) {
+        // I.e. if fetch has not completed yet.
+        return;
+    }
+    if (isError) {
+        return <p>There was an error fetching the databases</p>;
+    }
+    if (results.data.length === 0 && !isFetched) {
+        return <></>;
+    }
+    return (
+        <>
+            <p>Query time: {timeTook.toFixed(0)}ms</p>
+            <p>Results: {results.data.length}</p>
+        </>
+    )
+}
+
 function renderDatabaseResults(
     results: LookupApiResponse | undefined,
     isFetched: boolean,
@@ -31,9 +50,11 @@ function renderDatabaseResults(
         return <p>No results found.</p>;
     }
 
-    return results.data.map((result: any) => {
-        return <Table result={result}/>;
-    });
+    return (
+        results.data.map((result: any) => {
+            return <Table result={result}/>;
+        })
+    )
 }
 
 const Lookup: NextPage = () => {
@@ -106,6 +127,7 @@ const Lookup: NextPage = () => {
                     searchButtonHandler={searchButtonHandler}
                     isLoading={buttonIsLoading}
                 />
+                {renderQueryInformation(databaseResults, isFetched, isDatabaseError, timeTook)}
                 <div className="flex flex-wrap align-center justify-center">
                     {renderDatabaseResults(databaseResults, isFetched, isDatabaseError)}
                 </div>
