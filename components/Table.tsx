@@ -20,10 +20,14 @@ function renderDatabaseName(databaseName: string) {
     );
 }
 
+async function copyText(textToCopy: string) {
+    await navigator.clipboard.writeText(textToCopy)
+}
+
 export default function Table({result}: { result: any }) {
     const resultDynamicKeys = Object.keys(result);
-    const breachDate = result["breachdate"];
-    const databaseName = result["database"];
+    // const breachDate = result["breachdate"];
+    // const databaseName = result["database"];
 
     return (
         <div className="overflow-x-auto pt-5 pb-5">
@@ -38,7 +42,7 @@ export default function Table({result}: { result: any }) {
                         return (
                             <tr>
                                 <td className="font-serif">{dynamicKey}:</td>
-                                <td onClick={() => navigator.clipboard.writeText(result[dynamicKey])}>{result[dynamicKey]}</td>
+                                <td onClick={() => copyText(result[dynamicKey])}>{result[dynamicKey]}</td>
                             </tr>
                         );
                         // }
