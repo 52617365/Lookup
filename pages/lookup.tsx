@@ -128,7 +128,7 @@ const Lookup: NextPage = () => {
                     isLoading={buttonIsLoading}
                 />
                 {renderQueryInformation(databaseResults, isFetched, isDatabaseError, timeTook)}
-                <div className="flex flex-wrap align-center justify-center">
+                <div className="flex flex-wrap align-center justify-center gap-4">
                     {renderDatabaseResults(databaseResults, isFetched, isDatabaseError)}
                 </div>
             </div>
