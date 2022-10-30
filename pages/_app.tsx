@@ -5,7 +5,7 @@ import {SessionProvider} from "next-auth/react";
 
 function MyApp({Component, pageProps: {session, ...pageProps}}: AppProps) {
     return (
-        <ThemeProvider defaultTheme="dracula">
+        <ThemeProvider defaultTheme="business">
             <SessionProvider session={session}>
                 <Component {...pageProps} />
                 {/*<Footer/>*/}

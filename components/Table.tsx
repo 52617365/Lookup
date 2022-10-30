@@ -1,3 +1,6 @@
+import {useState} from "react";
+import {Snackbar} from "@mui/material";
+
 function renderBreachDate(breachDate: string) {
     if (breachDate == null) {
         return <></>;
@@ -20,14 +23,20 @@ function renderDatabaseName(databaseName: string) {
     );
 }
 
-async function copyText(textToCopy: string) {
-    await navigator.clipboard.writeText(textToCopy)
+function sleep(ms: number) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 export default function Table({result}: { result: any }) {
+    const [copied, setCopied] = useState(false)
     const resultDynamicKeys = Object.keys(result);
     // const breachDate = result["breachdate"];
     // const databaseName = result["database"];
+
+    async function copyText(textToCopy: string) {
+        setCopied(true)
+        await navigator.clipboard.writeText(textToCopy)
+    }
 
     return (
         <div className="overflow-x-auto pt-5 pb-5">
@@ -40,10 +49,20 @@ export default function Table({result}: { result: any }) {
                         // if (!(dynamicKey == "database" || dynamicKey == "breachdate")) {
                         // we don't want to render these because they're already in the indicators.
                         return (
-                            <tr>
-                                <td className="font-serif">{dynamicKey}:</td>
-                                <td onClick={() => copyText(result[dynamicKey])}>{result[dynamicKey]}</td>
-                            </tr>
+                            <>
+
+                                <Snackbar
+                                    message="Copied to clipboard"
+                                    anchorOrigin={{vertical: "top", horizontal: "center"}}
+                                    autoHideDuration={500}
+                                    onClose={() => setCopied(false)}
+                                    open={copied}
+                                />
+                                <tr>
+                                    <td className="font-serif">{dynamicKey}:</td>
+                                    <td onClick={() => copyText(result[dynamicKey])}>{result[dynamicKey]}</td>
+                                </tr>
+                            </>
                         );
                         // }
                     })}
