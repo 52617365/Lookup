@@ -7,9 +7,7 @@ function MyApp({Component, pageProps: {session, ...pageProps}}: AppProps) {
     return (
         <ThemeProvider defaultTheme="dracula">
             <SessionProvider session={session}>
-                <div className={"relative"}>
-                    <Component {...pageProps} />
-                </div>
+                <Component {...pageProps} />
                 {/*<Footer/>*/}
             </SessionProvider>
         </ThemeProvider>
