@@ -9,22 +9,20 @@ import requestToEndpoint from "../lib/queryEndpoint";
 import Table from "../components/Table";
 import SearchButton from "../components/SearchButton";
 
-// import { performance } from 'perf_hooks';
-
 function renderQueryInformation(results: LookupApiResponse | undefined, isFetched: boolean, isError: boolean, timeTook: number) {
     if (results == undefined) {
         // I.e. if fetch has not completed yet.
         return;
     }
-    if (isError) {
-        return <p>There was an error fetching the databases</p>;
-    }
+    // if (isError) {
+    //     return <p>There was an error fetching the databases</p>;
+    // }
     if (results.data.length === 0 && !isFetched) {
         return <></>;
     }
     return (
         <div className="flex flex-wrap align-items-center justify-center gap-2">
-            <p>Results: {results.data.length} &&</p>
+            <p>Results: {results.data.length}</p>
             <p>Query time: {timeTook.toFixed(0)}ms</p>
         </div>
     )
