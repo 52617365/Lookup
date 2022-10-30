@@ -24,8 +24,8 @@ function renderQueryInformation(results: LookupApiResponse | undefined, isFetche
         return <></>;
     }
     return (
-        <div className="flex flex-wrap align-items-center justify-center">
-                <p className="pr-2">Results: {results.data.length} &&</p>
+        <div className="flex flex-wrap align-items-center justify-center gap-2">
+                <p>Results: {results.data.length} &&</p>
                 <p>Query time: {timeTook.toFixed(0)}ms</p>
         </div>
     )
