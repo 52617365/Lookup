@@ -38,7 +38,7 @@ export default function Table({result}: { result: any }) {
                         return (
                             <tr>
                                 <td className="font-serif">{dynamicKey}:</td>
-                                <td>{result[dynamicKey]}</td>
+                                <td onClick={() => navigator.clipboard.writeText(result[dynamicKey])}>{result[dynamicKey]}</td>
                             </tr>
                         );
                         // }
