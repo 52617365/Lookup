@@ -7,9 +7,8 @@ import LookUpOptionButtons from "../components/LookUpOptionButtons";
 import isValidQuery from "../lib/validateQueryOptions";
 import requestToEndpoint from "../lib/queryEndpoint";
 import Table from "../components/Table";
-import Link from "next/link"
 import SearchButton from "../components/SearchButton";
-import isUserLoggedIn from "../lib/login";
+
 // import { performance } from 'perf_hooks';
 
 function renderQueryInformation(results: LookupApiResponse | undefined, isFetched: boolean, isError: boolean, timeTook: number) {
@@ -25,8 +24,8 @@ function renderQueryInformation(results: LookupApiResponse | undefined, isFetche
     }
     return (
         <div className="flex flex-wrap align-items-center justify-center gap-2">
-                <p>Results: {results.data.length} &&</p>
-                <p>Query time: {timeTook.toFixed(0)}ms</p>
+            <p>Results: {results.data.length} &&</p>
+            <p>Query time: {timeTook.toFixed(0)}ms</p>
         </div>
     )
 }
@@ -82,7 +81,7 @@ const Lookup: NextPage = () => {
     const captureLookUpQueryRef = useRef<HTMLInputElement>(null);
     const searchButtonHandler = async () => {
         if (buttonIsLoading) {
-            // to avoid refetching while we fetch.
+            // to avoid fetching while we fetch.
             return;
         }
 
