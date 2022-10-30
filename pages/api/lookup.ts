@@ -1,8 +1,6 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type {NextApiRequest, NextApiResponse} from "next";
 import {MongoClient, WithId} from "mongodb";
 import userRequestIsInvalid from "../../lib/validateLookupRequest";
-import {Db} from "mongodb"
 
 const client = new MongoClient(`mongodb://localhost:27017`);
 const database = client.db("lookup");

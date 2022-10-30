@@ -10,6 +10,7 @@ import Table from "../components/Table";
 import Link from "next/link"
 import SearchButton from "../components/SearchButton";
 import isUserLoggedIn from "../lib/login";
+// import { performance } from 'perf_hooks';
 
 function renderDatabaseResults(
     results: LookupApiResponse | undefined,
@@ -55,6 +56,7 @@ const Lookup: NextPage = () => {
     const [isDatabaseError, setDatabaseError] = useState<boolean>(false);
     const [isFetched, setFetched] = useState<boolean>(false);
     const [buttonIsLoading, setButtonLoading] = useState<boolean>(false);
+    const [timeTook, setTimeTook] = useState<number>(0);
 
     const captureLookUpQueryRef = useRef<HTMLInputElement>(null);
     const searchButtonHandler = async () => {
@@ -70,13 +72,15 @@ const Lookup: NextPage = () => {
 
         setButtonLoading(true);
         setFetched(true);
-
         try {
+            const startTime = performance.now()
             const response = await requestToEndpoint(
                 lookupQuery as string,
                 lookupOption,
                 !isWildcard
             );
+            const endTime = performance.now()
+            setTimeTook(endTime - startTime)
             setResults(response);
             setDatabaseError(false);
         } catch (_) {
