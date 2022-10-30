@@ -50,18 +50,21 @@ export default function Table({result}: { result: any }) {
                         // we don't want to render these because they're already in the indicators.
                         return (
                             <>
-
-                                <Snackbar
-                                    message="Copied to clipboard"
-                                    anchorOrigin={{vertical: "top", horizontal: "center"}}
-                                    autoHideDuration={500}
-                                    onClose={() => setCopied(false)}
-                                    open={copied}
-                                />
-                                <tr>
-                                    <td className="font-serif">{dynamicKey}:</td>
-                                    <td onClick={() => copyText(result[dynamicKey])}>{result[dynamicKey]}</td>
-                                </tr>
+                                <div>
+                                    <Snackbar
+                                        message="Copied to clipboard"
+                                        anchorOrigin={{vertical: "top", horizontal: "center"}}
+                                        autoHideDuration={500}
+                                        onClose={() => setCopied(false)}
+                                        open={copied}
+                                    />
+                                </div>
+                                <div>
+                                    <tr>
+                                        <td className="font-serif">{dynamicKey}:</td>
+                                        <td onClick={() => copyText(result[dynamicKey])}>{result[dynamicKey]}</td>
+                                    </tr>
+                                </div>
                             </>
                         );
                         // }
