@@ -31,13 +31,11 @@ export default async function handler(
 
 async function getMongoDbResults(query: string, strict: boolean, queryType: string) {
     if (strict) {
-        return database.collection("data").find({[queryType]: query}, {projection: {_id: 0}}).collation({
-            locale: "en",
-            strength: 2
-        }).limit(500).toArray()
+        return database.collection("data").find({[queryType]: query}, {projection: {_id: 0}})
+            .limit(500).toArray()
     } else {
         return database.collection("data").find({
             [queryType]: new RegExp(query, "i")
-        }, {projection: {_id: 0}}).collation({locale: "en", strength: 2}).limit(500).toArray()
+        }, {projection: {_id: 0}}).limit(500).toArray()
     }
 }
