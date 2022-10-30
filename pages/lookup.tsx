@@ -51,7 +51,7 @@ const Lookup: NextPage = () => {
     const [lookupOption, setLookupOption] = useState<string>("");
     const [isWildcard, setWildcard] = useState<boolean>(false);
 
-    const [databaseResults, setResults] = useState<LookupApiResponse>(); // TODO: make type for the results.
+    const [databaseResults, setResults] = useState<LookupApiResponse>();
     const [isDatabaseError, setDatabaseError] = useState<boolean>(false);
     const [isFetched, setFetched] = useState<boolean>(false);
     const [buttonIsLoading, setButtonLoading] = useState<boolean>(false);

@@ -1,31 +1,45 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from "next";
-import { MongoClient, WithId } from "mongodb";
+import type {NextApiRequest, NextApiResponse} from "next";
+import {MongoClient, WithId} from "mongodb";
 import userRequestIsInvalid from "../../lib/validateLookupRequest";
-import getMongoDbResults from "../../lib/lookupQuery";
+import {Db} from "mongodb"
+
+const client = new MongoClient(`mongodb://localhost:27017`);
+const database = client.db("lookup");
 
 export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<WithId<Document> | unknown>
+    req: NextApiRequest,
+    res: NextApiResponse<WithId<Document> | unknown>
 ) {
-  const uri = `mongodb://localhost:27017`;
-  const client = new MongoClient(uri);
-  const database = client.db("lookup");
+    if (userRequestIsInvalid(req, res)) {
+        return;
+    }
+    try {
+        const results = await getMongoDbResults(
+            req.body.query,
+            req.body.strict,
+            req.body.queryType
+        );
+        res.status(200).send({data: results});
+    } catch (e) {
+        res.status(404).send({data: e});
+    }
+}
 
-  if (userRequestIsInvalid(req, res)) {
-    return;
-  }
-  try {
-    const results = await getMongoDbResults(
-      database,
-      req.body.query,
-      req.body.strict,
-      req.body.queryType
-    );
-    res.status(200).send({ data: results });
-  } catch (e) {
-    res.status(404).send({ data: e });
-  } finally {
-    await client.close();
-  }
+/*
+    Queries for the following criteria:
+    "username", "password", "ipaddress", "facebookid", "linkedin", "zipcode", "phonenumber"
+ */
+
+async function getMongoDbResults(query: string, strict: boolean, queryType: string) {
+    if (strict) {
+        return database.collection("data").find({[queryType]: query}, {projection: {_id: 0}}).collation({
+            locale: "en",
+            strength: 2
+        }).limit(500).toArray()
+    } else {
+        return database.collection("data").find({
+            [queryType]: new RegExp(query, "i")
+        }, {projection: {_id: 0}}).collation({locale: "en", strength: 2}).limit(500).toArray()
+    }
 }
