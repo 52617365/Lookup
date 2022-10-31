@@ -12,16 +12,12 @@ import SearchButton from "../components/SearchButton";
 function renderQueryInformation(
   results: LookupApiResponse | undefined,
   isFetched: boolean,
-  isError: boolean,
   timeTook: number
 ) {
   if (results == undefined) {
     // I.e. if fetch has not completed yet.
     return;
   }
-  // if (isError) {
-  //     return <p>There was an error fetching the databases</p>;
-  // }
   if (results.data.length === 0 && !isFetched) {
     return <></>;
   }
@@ -124,12 +120,7 @@ const Lookup: NextPage = () => {
           searchButtonHandler={searchButtonHandler}
           isLoading={buttonIsLoading}
         />
-        {renderQueryInformation(
-          databaseResults,
-          isFetched,
-          isDatabaseError,
-          timeTook
-        )}
+        {renderQueryInformation(databaseResults, isFetched, timeTook)}
       </div>
       <div className={"grid m-auto pt-5 w-5/6"}>
         <div className="flex flex-wrap gap-1 justify-center items-center">

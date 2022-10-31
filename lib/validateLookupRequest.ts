@@ -9,9 +9,8 @@ function lookUpModeIsInvalid(mode: string): boolean {
         "ipaddress",
         "facebookid",
         "domain",
-        "linkedin",
         "zipcode",
-        "phonenumber",
+        "name"
     ];
     return !allowedModes.includes(mode);
 }
