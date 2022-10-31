@@ -28,6 +28,7 @@ function renderQueryInformation(results: LookupApiResponse | undefined, isFetche
     )
 }
 
+
 function renderDatabaseResults(
     results: LookupApiResponse | undefined,
     isFetched: boolean,

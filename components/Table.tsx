@@ -40,38 +40,38 @@ export default function Table({result}: { result: any }) {
 
     return (
         <div className="overflow-x-auto pt-5 pb-5">
-            <div className="indicator">
-                {/*{renderDatabaseName(databaseName)}*/}
-                {/*{renderBreachDate(breachDate)}*/}
-                <table className="table table-compact w-full border">
-                    <tbody>
-                    {resultDynamicKeys.map((dynamicKey: string) => {
-                        // if (!(dynamicKey == "database" || dynamicKey == "breachdate")) {
-                        // we don't want to render these because they're already in the indicators.
-                        return (
-                            <>
-                                <div>
-                                    <Snackbar
-                                        message="Copied to clipboard"
-                                        anchorOrigin={{vertical: "top", horizontal: "center"}}
-                                        autoHideDuration={500}
-                                        onClose={() => setCopied(false)}
-                                        open={copied}
-                                    />
-                                </div>
-                                <div>
-                                    <tr>
-                                        <td className="font-serif">{dynamicKey}:</td>
-                                        <td onClick={() => copyText(result[dynamicKey])}>{result[dynamicKey]}</td>
-                                    </tr>
-                                </div>
-                            </>
-                        );
-                        // }
-                    })}
-                    </tbody>
-                </table>
-            </div>
+            {/*<div className="indicator">*/}
+            {/*{renderDatabaseName(databaseName)}*/}
+            {/*{renderBreachDate(breachDate)}*/}
+            <table className="table table-compact w-full border">
+                <tbody>
+                {resultDynamicKeys.map((dynamicKey: string) => {
+                    // if (!(dynamicKey == "database" || dynamicKey == "breachdate")) {
+                    // we don't want to render these because they're already in the indicators.
+                    return (
+                        <>
+                            <div>
+                                <Snackbar
+                                    message="Copied to clipboard"
+                                    anchorOrigin={{vertical: "top", horizontal: "center"}}
+                                    autoHideDuration={500}
+                                    onClose={() => setCopied(false)}
+                                    open={copied}
+                                />
+                            </div>
+                            <div>
+                                <tr>
+                                    <td className="font-serif">{dynamicKey}:</td>
+                                    <td onClick={() => copyText(result[dynamicKey])}>{result[dynamicKey]}</td>
+                                </tr>
+                            </div>
+                        </>
+                    );
+                    // }
+                })}
+                </tbody>
+            </table>
         </div>
+        // </div>
     );
 }
