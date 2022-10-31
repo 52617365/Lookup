@@ -131,26 +131,11 @@ const Lookup: NextPage = () => {
           timeTook
         )}
       </div>
-      <div
-        className={
-          "grid justify-center md:grid-cols-3 sm:grid-cols-2 m-auto pt-5 w-5/6 border gap-4"
-        }
-      >
-        {/* <div className="flex flex-wrap align-center flex-row gap-4"> */}
-        {/* <div className="grid gap-4 align-center justify-center">
-          lkjasdflkjasdfl;jkasdfjkl;asdjklasfd
+      <div className={"grid justify-center m-auto pt-5 w-5/6 border gap-4"}>
+        <div className="flex flex-wrap justify-center gap-4">
+          {renderDatabaseResults(databaseResults, isFetched, isDatabaseError)}
         </div>
-        <div className="grid gap-4 align-center justify-center">
-          lkjasdflkjasdfl;jkasdfjkl;asdjklasfd
-        </div>
-        <div className="grid gap-4 align-center justify-center">
-          lkjasdflkjasdfl;jkasdfjkl;asdjklasfd
-        </div> */}
-        {/* </div> */}
-        {/* <div className="flex flex-row flex-wrap align-center justify-center gap-4"> */}
-        {renderDatabaseResults(databaseResults, isFetched, isDatabaseError)}
       </div>
-      {/*</div>*/}
     </>
   );
 };

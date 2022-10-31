@@ -36,7 +36,7 @@ export default function Table({ result }: { result: any }) {
 
   return (
     // <div className="overflow-x-auto pt-5 pb-5">
-    <div className="pt-5 pb-5 grid gap-4 align-center justify-center">
+    <div className="pt-5 pb-5 gap-4 justify-center">
       {/*// <div className="indicator">*/}
       {/*// {renderDatabaseName(databaseName)}*/}
       {/*// {renderBreachDate(breachDate)}*/}
