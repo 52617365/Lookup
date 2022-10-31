@@ -6,10 +6,10 @@ export default function SearchButton({
   searchButtonHandler: any;
 }): JSX.Element {
   if (isLoading) {
-    return <button className="btn loading w-28"></button>;
+    return <button className="btn loading w-18"></button>;
   } else {
     return (
-      <button onClick={searchButtonHandler} className="btn w-28">
+      <button onClick={searchButtonHandler} className="btn w-24">
         Search
       </button>
     );

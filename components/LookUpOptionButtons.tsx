@@ -15,6 +15,7 @@ const modes: Array<Mode> = [
   { name: "domain", id: "domain" },
   { name: "fb id", id: "facebookid" },
   { name: "name", id: "name" },
+  { name: "postcode", id: "zipcode" },
 ];
 export default function LookUpOptionButtons({
   setLookupOptionState,
@@ -37,7 +38,7 @@ export default function LookUpOptionButtons({
             name="options"
             value={mode.id}
             data-title={mode.name}
-            className="btn"
+            className="btn btn-sm text-xs"
           />
         );
       })}

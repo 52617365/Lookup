@@ -109,17 +109,17 @@ const Lookup: NextPage = () => {
       <Topnav options={topNavLinks} />
       <LookupOptions isWildcard={isWildcard} setWildcard={setWildcard} />
       <div className="text-center">
+        <LookUpOptionButtons setLookupOptionState={setLookupOption} />
         <div>
-          <LookUpOptionButtons setLookupOptionState={setLookupOption} />
+          <TextInput
+            placeholderText="Search for anything"
+            inputRef={captureLookUpQueryRef}
+          />
+          <SearchButton
+            searchButtonHandler={searchButtonHandler}
+            isLoading={buttonIsLoading}
+          />
         </div>
-        <TextInput
-          placeholderText="Search for anything"
-          inputRef={captureLookUpQueryRef}
-        />
-        <SearchButton
-          searchButtonHandler={searchButtonHandler}
-          isLoading={buttonIsLoading}
-        />
         {renderQueryInformation(databaseResults, isFetched, timeTook)}
       </div>
       <div className={"grid m-auto pt-5 w-5/6"}>
