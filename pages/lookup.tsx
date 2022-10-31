@@ -131,7 +131,7 @@ const Lookup: NextPage = () => {
           timeTook
         )}
       </div>
-      <div className={"grid justify-center m-auto pt-5 w-5/6 border gap-4"}>
+      <div className={"grid justify-center m-auto pt-5 w-5/6 gap-4"}>
         <div className="flex flex-wrap justify-center gap-4">
           {renderDatabaseResults(databaseResults, isFetched, isDatabaseError)}
         </div>
