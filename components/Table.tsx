@@ -26,8 +26,6 @@ function renderDatabaseName(databaseName: string) {
 export default function Table({ result }: { result: any }) {
   const [copied, setCopied] = useState(false);
   const resultDynamicKeys = Object.keys(result);
-  // const breachDate = result["breachdate"];
-  // const databaseName = result["database"];
 
   async function copyText(textToCopy: string) {
     setCopied(true);
@@ -35,16 +33,10 @@ export default function Table({ result }: { result: any }) {
   }
 
   return (
-    // <div className="overflow-x-auto pt-5 pb-5">
-    <div style={{ minWidth: 300 }} className="pt-5 pb-5 gap-4 justify-center">
-      {/*// <div className="indicator">*/}
-      {/*// {renderDatabaseName(databaseName)}*/}
-      {/*// {renderBreachDate(breachDate)}*/}
-      <table className="table table-compact border">
+    <div style={{ minWidth: 300 }} className="pt-5 pb-5">
+      <table className="table table-compact border m-auto">
         <tbody>
           {resultDynamicKeys.map((dynamicKey: string) => {
-            // if (!(dynamicKey == "database" || dynamicKey == "breachdate")) {
-            // we don't want to render these because they're already in the indicators.
             return (
               <>
                 <div>
