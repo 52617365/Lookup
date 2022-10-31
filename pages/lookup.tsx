@@ -48,9 +48,6 @@ function renderDatabaseResults(
   if (results.data.length === 0 && !isFetched) {
     return <></>;
   }
-  if (isFetched && results.data.length === 0) {
-    return <p>No results found.</p>;
-  }
 
   return results.data.map((result: any) => {
     return <Table result={result} />;
@@ -136,7 +133,7 @@ const Lookup: NextPage = () => {
       </div>
       <div
         className={
-          "grid justify-center md:grid-cols-3 sm:grid-cols-2 m-auto pt-5 w-5/6 gap-4"
+          "grid justify-center md:grid-cols-3 sm:grid-cols-2 m-auto pt-5 w-5/6 border gap-4"
         }
       >
         {/* <div className="flex flex-wrap align-center flex-row gap-4"> */}
