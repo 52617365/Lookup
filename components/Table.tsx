@@ -58,7 +58,6 @@ export default function Table({ result }: { result: any }) {
                 </div>
               </>
             );
-            // }
           })}
         </tbody>
       </table>
