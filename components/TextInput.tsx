@@ -14,7 +14,7 @@ export default function TextInput({
       id="lookupquery"
       autoComplete={"off"}
       placeholder={placeholderText}
-      className="input input-bordered max-w-md"
+      className="input input-bordered w-60"
     />
   );
 }
