@@ -1,22 +1,3 @@
-type Mode = {
-  name: string;
-  id: string;
-};
-
-// The ids here should be the same as the fields in db so we don't have to handle that later.
-const modes: Array<Mode> = [
-  { name: "username", id: "username" },
-  {
-    name: "password",
-    id: "password",
-  },
-  { name: "email", id: "email" },
-  { name: "ip", id: "ipaddress" },
-  { name: "domain", id: "domain" },
-  { name: "fb id", id: "facebookid" },
-  { name: "name", id: "name" },
-  { name: "postcode", id: "zipcode" },
-];
 export default function LookUpOptionButtons({
   setLookupOptionState,
 }: {
@@ -102,19 +83,6 @@ export default function LookUpOptionButtons({
           data-title={"zipcode"}
           className="btn btn-sm text-xs"
         />
-
-        {/* {modes.map((mode: Mode, index: number) => {
-          return (
-            <input
-              key={index}
-              type="radio"
-              name="options"
-              value={mode.id}
-              data-title={mode.name}
-              className="btn btn-sm text-xs"
-            />
-          );
-        })} */}
       </div>
     </div>
   );

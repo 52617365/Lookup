@@ -109,14 +109,16 @@ const Lookup: NextPage = () => {
       <Topnav options={topNavLinks} />
       <LookupOptions isWildcard={isWildcard} setWildcard={setWildcard} />
       <LookUpOptionButtons setLookupOptionState={setLookupOption} />
-      <TextInput
-        placeholderText="Search for anything"
-        inputRef={captureLookUpQueryRef}
-      />
-      <SearchButton
-        searchButtonHandler={searchButtonHandler}
-        isLoading={buttonIsLoading}
-      />
+      <div className="flex justify-center">
+        <TextInput
+          placeholderText="Search for anything"
+          inputRef={captureLookUpQueryRef}
+        />
+        <SearchButton
+          searchButtonHandler={searchButtonHandler}
+          isLoading={buttonIsLoading}
+        />
+      </div>
       {renderQueryInformation(databaseResults, isFetched, timeTook)}
       <div className={"grid m-auto pt-5 w-5/6"}>
         <div className="flex flex-wrap gap-1 justify-center items-center">
