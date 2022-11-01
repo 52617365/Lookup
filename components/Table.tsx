@@ -23,7 +23,13 @@ function renderDatabaseName(databaseName: string) {
   );
 }
 
-export default function Table({ result }: { result: any }) {
+export default function Table({
+  result,
+  index,
+}: {
+  result: any;
+  index: number;
+}) {
   const [copied, setCopied] = useState(false);
   const resultDynamicKeys = Object.keys(result);
 

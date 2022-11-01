@@ -45,8 +45,8 @@ function renderDatabaseResults(
     return <></>;
   }
 
-  return results.data.map((result: any) => {
-    return <Table result={result} />;
+  return results.data.map((result: any, index: number) => {
+    return <Table index={index} result={result} />;
   });
 }
 
