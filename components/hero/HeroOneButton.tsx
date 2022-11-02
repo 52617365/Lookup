@@ -3,7 +3,6 @@ import {ReactNode} from 'react';
 type IHeroOneButtonProps = {
     title: ReactNode;
     description: string;
-    button: ReactNode;
 };
 
 const HeroOneButton = (props: IHeroOneButtonProps) => (
@@ -14,7 +13,6 @@ const HeroOneButton = (props: IHeroOneButtonProps) => (
         <div className="text-2xl mt-4 mb-16">
             {props.description}
         </div>
-        {props.button}
     </header>
 );
 
