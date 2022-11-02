@@ -1,28 +1,6 @@
 import {useState} from "react";
 import {Snackbar} from "@mui/material";
 
-function renderBreachDate(breachDate: string) {
-    if (breachDate == null) {
-        return <></>;
-    }
-    return (
-        <span className="indicator-item indicator-bottom indicator-center badge badge-secondary w-max">
-      {breachDate}
-    </span>
-    );
-}
-
-function renderDatabaseName(databaseName: string) {
-    if (databaseName == null) {
-        return <></>;
-    }
-    return (
-        <span className="indicator-item indicator-center badge badge-primary w-max">
-      {databaseName}
-    </span>
-    );
-}
-
 export default function Table({
                                   result,
                               }: {

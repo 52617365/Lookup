@@ -120,7 +120,7 @@ const Lookup: NextPage = () => {
                 />
             </div>
             {renderQueryInformation(databaseResults, isFetched, timeTook)}
-            <div className={"grid m-auto pt-5 w-5/6"}>
+            <div className={"grid m-auto mt-5 w-5/6"}>
                 <div className="flex flex-wrap gap-1 justify-center items-center">
                     {renderDatabaseResults(databaseResults, isFetched, isDatabaseError)}
                 </div>
