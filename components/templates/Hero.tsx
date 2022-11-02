@@ -25,11 +25,11 @@ const Hero = () => (
             <HeroOneButton
                 title={
                     <>
-                        {"The modern landing page for\n"}
-                        <span className="text-primary-500">React developers</span>
+                        {"The only database breach search engine\n"}
+                        <span className="text-primary-500">you will ever need</span>
                     </>
                 }
-                description="The easiest way to build a React landing page in seconds."
+                description="Find your personal details from breached databases in milliseconds"
             />
         </Section>
     </Background>
