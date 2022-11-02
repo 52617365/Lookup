@@ -18,7 +18,7 @@ export default function LookUpOptionButtons({
                     name="options"
                     value={"username"}
                     data-title={"username"}
-                    className="btn btn-outline btn-sm text-xs"
+                    className="btn btn-outline btn-sm text-xs hover:bg-gray-200"
                 />
                 <input
                     style={{minWidth: 80}}
@@ -26,7 +26,7 @@ export default function LookUpOptionButtons({
                     name="options"
                     value={"password"}
                     data-title={"password"}
-                    className="btn btn-outline btn-sm text-xs"
+                    className="btn btn-outline btn-sm text-xs hover:bg-gray-200"
                 />
                 <input
                     style={{minWidth: 80}}
@@ -34,7 +34,7 @@ export default function LookUpOptionButtons({
                     name="options"
                     value={"email"}
                     data-title={"email"}
-                    className="btn btn-outline btn-sm text-xs"
+                    className="btn btn-outline btn-sm text-xs hover:bg-gray-200"
                 />
                 <input
                     style={{minWidth: 80}}
@@ -42,7 +42,7 @@ export default function LookUpOptionButtons({
                     name="options"
                     value={"ipaddress"}
                     data-title={"ip"}
-                    className="btn btn-outline btn-sm text-xs"
+                    className="btn btn-outline btn-sm text-xs hover:bg-gray-200"
                 />
             </div>
             <div
@@ -51,13 +51,12 @@ export default function LookUpOptionButtons({
                     setLookupOptionState((e.target as HTMLInputElement).value)
                 }
             >
-                <input
-                    style={{minWidth: 80}}
-                    type="radio"
-                    name="options"
-                    value={"domain"}
-                    data-title={"domain"}
-                    className="btn btn-outline btn-sm text-xs border"
+                <input style={{minWidth: 80}}
+                       type="radio"
+                       name="options"
+                       value={"domain"}
+                       data-title={"domain"}
+                       className="btn btn-outline btn-sm text-xs hover:bg-gray-200"
                 />
                 <input
                     style={{minWidth: 80}}
@@ -65,7 +64,7 @@ export default function LookUpOptionButtons({
                     name="options"
                     value={"fb id"}
                     data-title={"facebookid"}
-                    className="btn btn-outline btn-sm text-xs"
+                    className="btn btn-outline btn-sm text-xs hover:bg-gray-200"
                 />
                 <input
                     style={{minWidth: 80}}
@@ -73,7 +72,7 @@ export default function LookUpOptionButtons({
                     name="options"
                     value={"name"}
                     data-title={"name"}
-                    className="btn btn-outline btn-sm text-xs"
+                    className="btn btn-outline btn-sm text-xs hover:bg-gray-200"
                 />
                 <input
                     style={{minWidth: 80}}
@@ -81,7 +80,7 @@ export default function LookUpOptionButtons({
                     name="options"
                     value={"postcode"}
                     data-title={"zipcode"}
-                    className="btn btn-outline btn-sm text-xs"
+                    className="btn btn-outline btn-sm text-xs hover:bg-gray-200"
                 />
             </div>
         </div>
