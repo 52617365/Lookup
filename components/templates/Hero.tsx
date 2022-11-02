@@ -25,11 +25,10 @@ const Hero = () => (
             <HeroOneButton
                 title={
                     <>
-                        {"The only database breach search engine\n"}
-                        <span className="text-primary-500">you will ever need</span>
+                        {"A breach search engine that keeps you safe"}
                     </>
                 }
-                description="Find your personal details from breached databases in milliseconds"
+                description={"Every year, over 20 billion credentials get breached. \nStatistically, that's 2.5 credentials per person, your personal details might be breached, act now and find your personal details from breached databases in milliseconds."}
             />
         </Section>
     </Background>
