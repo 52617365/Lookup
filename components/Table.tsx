@@ -25,7 +25,6 @@ function renderDatabaseName(databaseName: string) {
 
 export default function Table({
                                   result,
-                                  index,
                               }: {
     result: any;
     index: number;
@@ -39,8 +38,8 @@ export default function Table({
     }
 
     return (
-        <div style={{minWidth: 300}} className="pt-5 pb-5">
-            <table className="table table-compact border m-auto">
+        <div style={{minWidth: 300}} className="mt-5 mb-5 bg-white">
+            <table className="table table-compact border m-auto w-full">
                 <tbody>
                 {resultDynamicKeys.map((dynamicKey: string) => {
                     return (
@@ -56,8 +55,8 @@ export default function Table({
                             </div>
                             <div>
                                 <tr>
-                                    <td className="font-serif">{dynamicKey}</td>
-                                    <td className="w-full" onClick={() => copyText(result[dynamicKey])}>
+                                    <td className="font-serif w-full">{dynamicKey}:</td>
+                                    <td onClick={() => copyText(result[dynamicKey])}>
                                         {result[dynamicKey]}
                                     </td>
                                 </tr>
