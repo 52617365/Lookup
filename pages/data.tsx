@@ -1,7 +1,5 @@
-import Link from "next/link";
 import DataTable from "../components/DataTable";
 import Topnav from "../components/Topnav";
-import isUserLoggedIn from "../lib/login";
 
 function Data({dataList}: { dataList: Array<DatabaseDataFields> }) {
     // if (!isUserLoggedIn()) {
@@ -16,10 +14,10 @@ function Data({dataList}: { dataList: Array<DatabaseDataFields> }) {
         {link: "/logout", text: "Log out"},
     ];
     return (
-        <>
+        <div>
             <Topnav options={topNavLinks}/>
             <DataTable dataList={dataList}/>
-        </>
+        </div>
     );
 }
 

@@ -28,7 +28,7 @@ const Hero = () => (
                         {"A breach search engine that keeps you safe"}
                     </>
                 }
-                description={"Every year, over 20 billion credentials get breached. That's 2.5 credentials per person, your personal details might be breached, act now and find your personal details from breached databases in milliseconds."}
+                description={"Every year, over 20 billion credentials get breached. That's 2.5 credentials per person living on this earth, your personal details might be breached, act now and find your personal details from breached databases in milliseconds."}
             />
         </Section>
     </Background>

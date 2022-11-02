@@ -39,10 +39,10 @@ function renderDatabaseResults(
         return;
     }
     if (isError) {
-        return <p>There was an error fetching the databases</p>;
+        return <p className={"bg-gray-100"}>There was an error fetching the databases</p>;
     }
     if (results.data.length === 0 && !isFetched) {
-        return <></>;
+        return <></>
     }
 
     return results.data.map((result: any, index: number) => {
@@ -120,7 +120,7 @@ const Lookup: NextPage = () => {
                 />
             </div>
             {renderQueryInformation(databaseResults, isFetched, timeTook)}
-            <div className={"grid m-auto mt-5 w-5/6"}>
+            <div className={"grid m-auto mt-5 w-5/6 bg-gray-100"}>
                 <div className="flex flex-wrap gap-1 justify-center items-center">
                     {renderDatabaseResults(databaseResults, isFetched, isDatabaseError)}
                 </div>
