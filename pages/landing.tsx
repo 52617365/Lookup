@@ -1,5 +1,5 @@
-import {Base} from "../components/landing/templates/Base";
+import { Base } from "../components/templates/Base";
 
-const Landing = () => <Base/>;
+const Landing = () => <Base />;
 
 export default Landing;
