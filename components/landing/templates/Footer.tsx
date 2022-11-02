@@ -63,22 +63,22 @@ const Footer = () => (
                     </>
                 }
             >
-                <li>
+                <li className={"mr-2"}>
                     <Link href="/">
                         Home
                     </Link>
                 </li>
-                <li>
+                <li className={"mr-2"}>
                     <Link href="/">
                         About
                     </Link>
                 </li>
-                <li>
+                <li className={"mr-2"}>
                     <Link href="/">
                         Docs
                     </Link>
                 </li>
-                <li>
+                <li className={"mr-2"}>
                     <Link href="https://github.com/ixartz/Next-JS-Landing-Page-Starter-Template">
                         GitHub
                     </Link>
