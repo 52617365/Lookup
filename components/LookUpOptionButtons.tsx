@@ -78,8 +78,8 @@ export default function LookUpOptionButtons({
                     style={{minWidth: 80}}
                     type="radio"
                     name="options"
-                    value={"postcode"}
-                    data-title={"zipcode"}
+                    value={"zipcode"}
+                    data-title={"postcode"}
                     className="btn btn-outline btn-sm text-xs hover:bg-gray-200"
                 />
             </div>
