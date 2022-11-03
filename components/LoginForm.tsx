@@ -1,28 +1,20 @@
 import Link from "next/link";
-import {signIn} from "next-auth/react"
+
 export default () => {
     return (
         <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
-            <div className="w-full p-6 m-auto bg-white rounded shadow-lg ring-2 ring-purple-800/50 lg:max-w-md">
-                <h1 className="text-3xl font-semibold text-center text-purple-700">
+            <div className="w-full p-6 m-auto bg-white rounded shadow-lg ring-2 lg:max-w-md">
+                <h1 className="text-3xl font-semibold text-center">
                     Login
                 </h1>
-                <div className="text-center pt-5 text-purple-700">
-                    <button onClick={() => signIn("slack")}>Sign in with Slack</button>
-                </div>
-                <div className="text-center pt-5 text-purple-700">
-                    <button onClick={() => signIn("github")}>Sign in with Github</button>
-                </div>
                 <form className="mt-6">
                     <div>
-                        <label htmlFor="email" className="block text-sm text-gray-800">
+                        <label htmlFor="email" className="block text-sm">
                             Email
                         </label>
                         <input
-                            disabled
-                            placeholder="Currently only OAuth is supported"
                             type="email"
-                            className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                            className="block w-full px-4 py-2 mt-2 bg-white border rounded-md focus:outline-none focus:ring focus:ring-opacity-40"
                         />
                     </div>
                     <div className="mt-4">
@@ -31,10 +23,8 @@ export default () => {
                                 Password
                             </label>
                             <input
-                                disabled
-                                placeholder="Currently only OAuth is supported"
                                 type="password"
-                                className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                className="block w-full px-4 py-2 mt-2 bg-white border rounded-md focus:outline-none focus:ring focus:ring-opacity-40"
                             />
                         </div>
                         <a href="#" className="text-xs text-gray-600 hover:underline">
@@ -42,8 +32,7 @@ export default () => {
                         </a>
                         <div className="mt-6">
                             <button
-                                className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"
-                                disabled
+                                className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-black rounded-md focus:outline-none"
                             >
                                 Login
                             </button>
@@ -54,7 +43,7 @@ export default () => {
                     {" "}
                     Don't have an account?{" "}
                     <Link
-                        className="font-medium text-purple-600 hover:underline"
+                        className="font-medium hover:underline"
                         href="/register"
                     >
                         Sign Up
