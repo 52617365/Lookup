@@ -66,10 +66,6 @@ const Lookup: NextPage = () => {
     //   );
     // }
 
-    const topNavLinks: Array<Options> = [
-        {link: "/data", text: "List of data"},
-        {link: "/logout", text: "Log out"}, // log out should maybe have a click handler.
-    ];
     const [lookupOption, setLookupOption] = useState<string>("");
     const [isWildcard, setWildcard] = useState<boolean>(false);
 
@@ -138,7 +134,7 @@ const Lookup: NextPage = () => {
                 />
             </div>
             {renderQueryInformation(databaseResults, isFetched, timeTook)}
-            <div className={"grid m-auto mt-5 w-5/6"}>
+            <div className={"grid m-auto w-5/6"}>
                 <div className="flex flex-wrap gap-1 justify-center items-center">
                     {renderDatabaseResults(databaseResults, isFetched, isDatabaseError)}
                 </div>
