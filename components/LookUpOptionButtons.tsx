@@ -18,7 +18,7 @@ export default function LookUpOptionButtons({
                     name="options"
                     value={"username"}
                     data-title={"username"}
-                    className="btn glass btn-sm text-xs hover:bg-gray-200 text-black"
+                    className="btn glass btn-sm text-xs text-black"
                 />
                 <input
                     style={{minWidth: 80}}
@@ -26,7 +26,7 @@ export default function LookUpOptionButtons({
                     name="options"
                     value={"password"}
                     data-title={"password"}
-                    className="btn glass btn-sm text-xs hover:bg-gray-200 text-black"
+                    className="btn glass btn-sm text-xs text-black"
                 />
                 <input
                     style={{minWidth: 80}}
@@ -34,7 +34,7 @@ export default function LookUpOptionButtons({
                     name="options"
                     value={"email"}
                     data-title={"email"}
-                    className="btn glass btn-sm text-xs hover:bg-gray-200 text-black"
+                    className="btn glass btn-sm text-xs text-black"
                 />
                 <input
                     style={{minWidth: 80}}
@@ -42,7 +42,7 @@ export default function LookUpOptionButtons({
                     name="options"
                     value={"ipaddress"}
                     data-title={"ip"}
-                    className="btn glass btn-sm text-xs hover:bg-gray-200 active:bg-blue-600 text-black"
+                    className="btn glass btn-sm text-xs text-black"
                 />
             </div>
             <div
@@ -56,7 +56,7 @@ export default function LookUpOptionButtons({
                        name="options"
                        value={"domain"}
                        data-title={"domain"}
-                       className="btn glass btn-sm text-xs hover:bg-gray-200 text-black"
+                       className="btn glass btn-sm text-xs text-black"
                 />
                 <input
                     style={{minWidth: 80}}
@@ -64,7 +64,7 @@ export default function LookUpOptionButtons({
                     name="options"
                     value={"fb id"}
                     data-title={"facebookid"}
-                    className="btn glass btn-sm text-xs hover:bg-gray-200 text-black"
+                    className="btn glass btn-sm text-xs text-black"
                 />
                 <input
                     style={{minWidth: 80}}
@@ -72,7 +72,7 @@ export default function LookUpOptionButtons({
                     name="options"
                     value={"name"}
                     data-title={"name"}
-                    className="btn glass btn-sm text-xs hover:bg-gray-200 text-black"
+                    className="btn glass btn-sm text-xs text-black"
                 />
                 <input
                     style={{minWidth: 80}}
@@ -80,7 +80,7 @@ export default function LookUpOptionButtons({
                     name="options"
                     value={"zipcode"}
                     data-title={"postcode"}
-                    className="btn glass btn-sm text-xs hover:bg-gray-200 text-black"
+                    className="btn glass btn-sm text-xs text-black"
                 />
             </div>
         </div>

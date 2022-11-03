@@ -16,7 +16,7 @@ export default function Table({
     }
 
     return (
-        <div style={{minWidth: 300}} className="mt-5 mb-5 bg-white">
+        <div style={{minWidth: 300}} className="mt-5 mb-5">
             <table className="table table-compact border m-auto w-full">
                 <tbody>
                 {resultDynamicKeys.map((dynamicKey: string) => {

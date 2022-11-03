@@ -1,6 +1,5 @@
 import {NextPage} from "next/types";
 import {useRef, useState} from "react";
-import Topnav from "../components/Topnav";
 import TextInput from "../components/TextInput";
 import LookupOptions from "../components/LookupOptions";
 import LookUpOptionButtons from "../components/LookUpOptionButtons";
@@ -8,6 +7,12 @@ import isValidQuery from "../lib/validateQueryOptions";
 import requestToEndpoint from "../lib/queryEndpoint";
 import Table from "../components/Table";
 import SearchButton from "../components/SearchButton";
+import {NavbarTwoColumns} from "../components/navigation/NavbarTwoColumns"
+import {AppConfig} from "../components/utils/AppConfig";
+import {Meta} from "../components/layout/Meta";
+import {Logo} from "../components/templates/Logo";
+import Link from "next/link";
+
 
 function renderQueryInformation(
     results: LookupApiResponse | undefined,
@@ -40,7 +45,7 @@ function renderDatabaseResults(
     }
     if (isError) {
         return (
-            <p className={"bg-gray-100"}>There was an error fetching the databases</p>
+            <p>There was an error fetching the databases</p>
         );
     }
     if (results.data.length === 0 && !isFetched) {
@@ -108,7 +113,20 @@ const Lookup: NextPage = () => {
 
     return (
         <>
-            <Topnav options={topNavLinks}/>
+            <Meta title={AppConfig.title} description={AppConfig.description}/>
+            {/*<Topnav options={topNavLinks}/>*/}
+            <NavbarTwoColumns logo={<Logo xl/>}>
+                <li className={"mr-5"}>
+                    <Link href="/data">
+                        Datalist
+                    </Link>
+                </li>
+                <li>
+                    <Link href="signOut">Sign out</Link>
+                </li>
+
+            </NavbarTwoColumns>
+            {/* TODO: replace this top nav */}
             <LookupOptions isWildcard={isWildcard} setWildcard={setWildcard}/>
             <LookUpOptionButtons setLookupOptionState={setLookupOption}/>
             <div className="flex justify-center">
@@ -122,7 +140,7 @@ const Lookup: NextPage = () => {
                 />
             </div>
             {renderQueryInformation(databaseResults, isFetched, timeTook)}
-            <div className={"grid m-auto mt-5 w-5/6 bg-gray-100"}>
+            <div className={"grid m-auto mt-5 w-5/6"}>
                 <div className="flex flex-wrap gap-1 justify-center items-center">
                     {renderDatabaseResults(databaseResults, isFetched, isDatabaseError)}
                 </div>
