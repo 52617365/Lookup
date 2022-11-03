@@ -39,10 +39,12 @@ function renderDatabaseResults(
         return;
     }
     if (isError) {
-        return <p className={"bg-gray-100"}>There was an error fetching the databases</p>;
+        return (
+            <p className={"bg-gray-100"}>There was an error fetching the databases</p>
+        );
     }
     if (results.data.length === 0 && !isFetched) {
-        return <></>
+        return <></>;
     }
 
     return results.data.map((result: any, index: number) => {
