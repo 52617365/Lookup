@@ -44,7 +44,7 @@ function renderDatabaseResults(
         );
     }
     if (results.data.length === 0 && !isFetched) {
-        return <></>;
+        return <></>
     }
 
     return results.data.map((result: any, index: number) => {

@@ -80,7 +80,7 @@ export default function LookUpOptionButtons({
                     name="options"
                     value={"zipcode"}
                     data-title={"postcode"}
-                    className="btn btn-outline btn-sm text-xs hover:bg-gray-200"
+                    className="btn glass btn-sm text-xs hover:bg-gray-200 text-black"
                 />
             </div>
         </div>
