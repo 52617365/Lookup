@@ -1,3 +1,0 @@
-- Make the functionality work.
-- Change color of database and date of breach indicators.
-- Add copy button to the result table to copy the results.
