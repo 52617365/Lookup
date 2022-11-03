@@ -124,9 +124,7 @@ const Lookup: NextPage = () => {
                 <li>
                     <Link href="signOut">Sign out</Link>
                 </li>
-
             </NavbarTwoColumns>
-            {/* TODO: replace this top nav */}
             <LookupOptions isWildcard={isWildcard} setWildcard={setWildcard}/>
             <LookUpOptionButtons setLookupOptionState={setLookupOption}/>
             <div className="flex justify-center">
