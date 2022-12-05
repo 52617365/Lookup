@@ -1,4 +1,4 @@
-export default async function requestToEndpoint(
+export default async function requestToLookupApi(
     query: string,
     queryType: string,
     strict: boolean
@@ -11,9 +11,9 @@ export default async function requestToEndpoint(
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            strict: strict,
             query: query,
             queryType: queryType,
+            strict: strict,
         }),
     });
     if (rawResponse.status != 200) {

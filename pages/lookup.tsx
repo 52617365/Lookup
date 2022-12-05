@@ -4,7 +4,7 @@ import TextInput from "../components/TextInput";
 import LookupOptions from "../components/LookupOptions";
 import LookUpOptionButtons from "../components/LookUpOptionButtons";
 import isValidQuery from "../lib/validateQueryOptions";
-import requestToEndpoint from "../lib/queryEndpoint";
+import requestToLookupApi from "../lib/queryEndpoint";
 import Table from "../components/Table";
 import SearchButton from "../components/SearchButton";
 import {NavbarTwoColumns} from "../components/navigation/NavbarTwoColumns"
@@ -91,7 +91,7 @@ const Lookup: NextPage = () => {
         setFetched(true);
         try {
             const startTime = performance.now();
-            const response = await requestToEndpoint(
+            const response = await requestToLookupApi(
                 lookupQuery as string,
                 lookupOption,
                 !isWildcard
