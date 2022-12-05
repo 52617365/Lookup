@@ -2,7 +2,7 @@ import {NextApiRequest, NextApiResponse} from "next";
 import {WithId} from "mongodb";
 
 
-function userRequestIsValid(
+export function userRequestIsValid(
     req: NextApiRequest,
     res: NextApiResponse<WithId<Document> | unknown>
 ): boolean {
@@ -14,11 +14,12 @@ function userRequestIsValid(
     }
     if (!req.body.scrict) {
         res.status(404).send({data: "Full text search is not implemented yet."});
+        return false;
     }
     return true;
 }
 
-function requestTypeIsPost(
+export function requestTypeIsPost(
     req: NextApiRequest,
     res: NextApiResponse<WithId<Document> | unknown>
 ): boolean {
@@ -29,7 +30,7 @@ function requestTypeIsPost(
     return true;
 }
 
-function requestBodyIsValid(
+export function requestBodyIsValid(
     req: NextApiRequest,
     res: NextApiResponse<WithId<Document> | unknown>
 ): boolean {
@@ -42,26 +43,33 @@ function requestBodyIsValid(
 }
 
 
-function queryIsValid(query: string) {
-    if (query == null || query == "" || onlySpaces(query)) {
+export function queryIsValid(query: string) {
+    if (isValidInput(query)) {
+        return true;
+    }
+    return false
+}
+
+
+export function queryTypeIsValid(queryType: string) {
+    if (isValidInput(queryType) && lookupModeIsSupported(queryType)) {
+        return true;
+    }
+    return false;
+}
+
+export function isValidInput(userInput: string) {
+    if (userInput == null || userInput == "" || onlySpaces(userInput)) {
         return false;
     }
     return true
 }
 
-
-function queryTypeIsValid(queryType: string) {
-    if (queryType == null || queryType == "" || onlySpaces(queryType) || !lookupModeIsSupported(queryType)) {
-        return false;
-    }
-    return true;
-}
-
-function onlySpaces(stringToCheck: string) {
+export function onlySpaces(stringToCheck: string) {
     return stringToCheck.trim().length === 0;
 }
 
-function lookupModeIsSupported(queryType: string): boolean {
+export function lookupModeIsSupported(queryType: string): boolean {
     const allowedModes = [
         // "username",
         // "password",
@@ -77,5 +85,3 @@ function lookupModeIsSupported(queryType: string): boolean {
     }
     return false;
 }
-
-export default userRequestIsValid;

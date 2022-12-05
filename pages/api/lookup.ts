@@ -1,6 +1,6 @@
 import type {NextApiRequest, NextApiResponse} from "next";
 import {MongoClient, WithId} from "mongodb";
-import userRequestIsValid from "../../lib/validateLookupRequest";
+import {userRequestIsValid} from "../../lib/validateLookupRequest";
 
 const client = new MongoClient(`mongodb://localhost:27017`);
 const database = client.db("lookup");
