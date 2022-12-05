@@ -10,7 +10,7 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<WithId<Document> | unknown>
 ) {
-    if (!userRequestIsValid(req, res)) {
+    if (!userRequestIsValid(req.body, req.method)) {
         res.status(404).send({data: "Invalid request"});
         return;
     }

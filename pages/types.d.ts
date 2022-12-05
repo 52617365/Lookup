@@ -18,6 +18,7 @@ type DatabaseDataFields = {
 type RequestBody = {
     queryType: string;
     query: string;
+    strict: boolean;
 };
 type LookupApiResponse = {
     data: Object<any>;

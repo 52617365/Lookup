@@ -29,15 +29,12 @@ describe('queryTypeIsValid is true with valid input.', () => {
 })
 describe('userRequestIsValid returns true with valid input.', () => {
     test('userRequestIsValid', () => {
-        const {req, res} = createMocks({
-            method: 'POST',
-            body: {
-                query: "test",
-                queryType: "email",
-                strict: true
-            }
-        });
-        expect(userRequestIsValid(req, res)).toBe(true);
+        const mockBody: RequestBody = {
+            query: "test",
+            queryType: "email",
+            strict: true
+        }
+        expect(userRequestIsValid(mockBody, "POST")).toBe(true);
     });
 })
 

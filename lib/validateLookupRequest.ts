@@ -1,38 +1,29 @@
-import {NextApiRequest, NextApiResponse} from "next";
-import {WithId} from "mongodb";
-
-
 export function userRequestIsValid(
-    req: NextApiRequest,
-    res: NextApiResponse<WithId<Document> | unknown>
+    body: RequestBody,
+    method: string | undefined
 ): boolean {
-    if (!requestTypeIsPost(req, res)) {
+    if (!requestTypeIsPost(method)) {
         return false;
     }
-    if (!requestBodyIsValid(req, res)) {
+    if (!requestBodyIsValid(body)) {
         return false;
     }
     return true;
 }
 
 export function requestTypeIsPost(
-    req: NextApiRequest,
-    res: NextApiResponse<WithId<Document> | unknown>
+    method: string | undefined,
 ): boolean {
-    if (req.method !== "POST") {
-        res.status(404).send({data: "Invalid request"});
+    if (method !== "POST") {
         return false;
     }
     return true;
 }
 
 export function requestBodyIsValid(
-    req: NextApiRequest,
-    res: NextApiResponse<WithId<Document> | unknown>
+    body: RequestBody,
 ): boolean {
-    const body: RequestBody = req.body;
     if (!queryIsValid(body.query) || !queryTypeIsValid(body.queryType)) {
-        res.status(404).send({data: "Invalid request"});
         return false;
     }
     return true

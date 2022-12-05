@@ -58,14 +58,6 @@ function renderDatabaseResults(
 }
 
 const Lookup: NextPage = () => {
-    // if (!isUserLoggedIn()) {
-    //   return (
-    //     <div className="flex items-center justify-center h-screen flex-wrap">
-    //       <Link href="/">You are unauthenticated, please login.</Link>
-    //     </div>
-    //   );
-    // }
-
     const [lookupOption, setLookupOption] = useState<string>("");
     const [isWildcard, setWildcard] = useState<boolean>(false);
 
