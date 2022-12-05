@@ -12,10 +12,6 @@ export function userRequestIsValid(
     if (!requestBodyIsValid(req, res)) {
         return false;
     }
-    if (!req.body.scrict) {
-        res.status(404).send({data: "Full text search is not implemented yet."});
-        return false;
-    }
     return true;
 }
 

@@ -1,4 +1,5 @@
-import {lookupModeIsSupported, queryTypeIsValid} from '../lib/validateLookupRequest';
+import {lookupModeIsSupported, queryTypeIsValid, userRequestIsValid} from '../lib/validateLookupRequest';
+import {createMocks} from 'node-mocks-http';
 
 describe('lookupModeIsSupported is true with a valid query type.', () => {
     test('lookupModeIsSupported', () => {
@@ -24,5 +25,32 @@ describe('queryTypeIsValid is true with valid input.', () => {
         expect(queryTypeIsValid("email")).toBe(true);
         expect(queryTypeIsValid("domain")).toBe(true);
         expect(queryTypeIsValid("name")).toBe(true);
+    });
+})
+describe('userRequestIsValid returns true with valid input.', () => {
+    test('userRequestIsValid', () => {
+        const {req, res} = createMocks({
+            method: 'POST',
+            body: {
+                query: "test",
+                queryType: "email",
+                strict: true
+            }
+        });
+        expect(userRequestIsValid(req, res)).toBe(true);
+    });
+})
+
+describe('userRequestIsValid returns false with invalid input.', () => {
+    test('userRequestIsValid', () => {
+        const {req, res} = createMocks({
+            method: 'GET',
+            body: {
+                query: "test",
+                queryType: "unsupportedType",
+                strict: false
+            }
+        });
+        expect(userRequestIsValid(req, res)).toBe(false);
     });
 })

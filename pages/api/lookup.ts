@@ -11,7 +11,12 @@ export default async function handler(
     res: NextApiResponse<WithId<Document> | unknown>
 ) {
     if (!userRequestIsValid(req, res)) {
+        res.status(404).send({data: "Invalid request"});
         return;
+    }
+    if (!req.body.scrict) {
+        res.status(404).send({data: "Full text search is not implemented yet."});
+        return false;
     }
     try {
         const results = await getResultsFromDatabase(
