@@ -1,4 +1,4 @@
-function onlySpaces(stringToCheck: string) {
+export function onlySpaces(stringToCheck: string) {
     return stringToCheck.trim().length === 0;
 }
 

@@ -3,7 +3,7 @@ import {useRef, useState} from "react";
 import TextInput from "../components/TextInput";
 import LookupOptions from "../components/LookupOptions";
 import LookUpOptionButtons from "../components/LookUpOptionButtons";
-import isValidQuery from "../lib/validateQueryOptions";
+import isValidQuery from "../lib/FrontEndValidation";
 import requestToLookupApi from "../lib/queryEndpoint";
 import Table from "../components/Table";
 import SearchButton from "../components/SearchButton";
@@ -70,7 +70,6 @@ const Lookup: NextPage = () => {
     const captureLookUpQueryRef = useRef<HTMLInputElement>(null);
     const searchButtonHandler = async () => {
         if (buttonIsLoading) {
-            // to avoid fetching while we fetch.
             return;
         }
 

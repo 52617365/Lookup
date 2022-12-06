@@ -1,3 +1,5 @@
+import {onlySpaces} from './FrontEndValidation';
+
 export function userRequestIsValid(
     body: RequestBody,
     method: string | undefined
@@ -8,6 +10,10 @@ export function userRequestIsValid(
     if (!requestBodyIsValid(body)) {
         return false;
     }
+    if (!body.strict) {
+        return false;
+    }
+
     return true;
 }
 
@@ -52,9 +58,6 @@ export function isValidInput(userInput: string) {
     return true
 }
 
-export function onlySpaces(stringToCheck: string) {
-    return stringToCheck.trim().length === 0;
-}
 
 export function lookupModeIsSupported(queryType: string): boolean {
     const allowedModes = [

@@ -1,4 +1,4 @@
-import {lookupModeIsSupported, queryTypeIsValid, userRequestIsValid} from '../lib/validateLookupRequest';
+import {lookupModeIsSupported, queryTypeIsValid, userRequestIsValid} from '../../lib/validateLookupRequest';
 import {createMocks} from 'node-mocks-http';
 
 describe('lookupModeIsSupported is true with a valid query type.', () => {

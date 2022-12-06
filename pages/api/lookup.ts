@@ -14,10 +14,6 @@ export default async function handler(
         res.status(404).send({data: "Invalid request"});
         return;
     }
-    if (!req.body.scrict) {
-        res.status(404).send({data: "Full text search is not implemented yet."});
-        return false;
-    }
     try {
         const results = await getResultsFromDatabase(
             req.body.query,
@@ -34,7 +30,7 @@ export default async function handler(
     "username", "password", "ipaddress", "facebookid", "linkedin", "zipcode", "phonenumber"
  */
 
-async function getResultsFromDatabase(query: string, queryType: string) {
+export async function getResultsFromDatabase(query: string, queryType: string) {
     return database.collection("data").find({[queryType]: query}, {projection: {_id: 0}})
         .limit(500).toArray()
 }

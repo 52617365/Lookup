@@ -1,4 +1,4 @@
-import queryEndpoint from '../lib/queryEndpoint';
+import queryEndpoint from '../../lib/queryEndpoint';
 
 
 describe('queryEndpoint', () => {
