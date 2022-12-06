@@ -101,7 +101,6 @@ const Lookup: NextPage = () => {
     return (
         <>
             <Meta title={AppConfig.title} description={AppConfig.description}/>
-            {/*<Topnav options={topNavLinks}/>*/}
             <NavbarTwoColumns logo={<Logo xl/>}>
                 <li className={"mr-5"}>
                     <Link href="/data">
