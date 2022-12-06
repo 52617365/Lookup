@@ -4,8 +4,7 @@
  *
  */
 
-import handler, {listData} from "../../../pages/api/datalist";
-import {createMocks} from "node-mocks-http";
+import {listData} from "../../../pages/api/datalist";
 
 describe("listData", () => {
     beforeAll(async () => {
@@ -27,18 +26,4 @@ describe("listData", () => {
         });
     })
 
-    test("handler sends json data as expected", () => {
-        const {req, res} = createMocks({
-            method: 'GET',
-        })
-        // @ts-ignore
-        listData.find = jest.fn().mockImplementation(() => {
-            throw new Error("mock error")
-        });
-
-        handler(req, res).then(() => {
-            expect(res._getStatusCode()).toBe(404);
-            expect(res._getData()).toBe("mock error");
-        })
-    })
 })
