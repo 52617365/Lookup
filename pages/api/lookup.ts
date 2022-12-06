@@ -27,7 +27,7 @@ export default async function handler(
 
 /*
     Queries for the following criteria:
-    "username", "password", "ipaddress", "facebookid", "linkedin", "zipcode", "phonenumber"
+    "domain", "name", "email"
  */
 
 export async function getResultsFromDatabase(query: string, queryType: string) {

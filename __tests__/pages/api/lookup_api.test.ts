@@ -2,18 +2,13 @@
  * Required to make tests pass (some dependency problem)
  * @jest-environment node
  */
-import handler from '../../../pages/api/lookup';
+import handler, {getResultsFromDatabase} from '../../../pages/api/lookup';
 import {createMocks} from 'node-mocks-http';
-import {ObjectId} from "mongodb";
-
 
 describe('Test lookup api', () => {
     beforeAll(async () => {
-        jest.mock('../../../pages/api/lookup', () => {
-            return {
-                getResultsFromDatabase: jest.fn()
-            }
-        });
+        // @ts-ignore
+        getResultsFromDatabase.find = jest.fn().mockReturnValueOnce([{name: "test"}]);
     })
 
     test('lookup handler returns 404 on invalid input', () => {
@@ -46,7 +41,6 @@ describe('Test lookup api', () => {
     });
 
     test('lookup handler returns 200 on valid input', () => {
-        jest.mock('../../../pages/api/lookup')
         const {req, res} = createMocks({
             method: 'POST',
             body: {
@@ -54,14 +48,11 @@ describe('Test lookup api', () => {
                 queryType: "domain",
                 strict: true
             }
-        });
+        })
 
         handler(req, res).then(() => {
-            expect(res._getData()).toBe([{
-                id: new ObjectId("60f1b5b0b9b5b8b1b8b1b8b1"),
-                username: "hello",
-            }]);
             expect(res._getStatusCode()).toBe(200);
+            expect(res._getData()).toBe([{name: "test"}]);
         })
     });
 })
