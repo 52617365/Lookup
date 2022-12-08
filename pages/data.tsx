@@ -4,7 +4,6 @@ import {AppConfig} from "../components/utils/AppConfig";
 import {Meta} from "../components/layout/Meta";
 import Link from "next/link";
 import {Logo} from "../components/templates/Logo";
-import {listData} from "./api/datalist";
 
 function Data({dataList}: { dataList: Array<DatabaseDataFields> }) {
     return (
@@ -25,9 +24,12 @@ function Data({dataList}: { dataList: Array<DatabaseDataFields> }) {
 }
 
 export async function getStaticProps() {
+    const res = await fetch("http://localhost:3000/api/datalist"); // This will not be used for users so TODO: restrict it to only here.
+    const deserializedData: DatabaseApiResponse = await res.json();
+    const data = deserializedData.data
     return {
         props: {
-            data: await listData(),
+            dataList: data
         },
     };
 }

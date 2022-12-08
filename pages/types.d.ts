@@ -10,8 +10,8 @@ type DatabaseApiData = {
     data: Array<DatabaseDataFields>;
 };
 type DatabaseDataFields = {
-    name: string;
-    lines: string;
+    database_name: string;
+    lines_in_database: string;
     breach_date: string;
     added: string;
 };

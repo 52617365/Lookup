@@ -2,13 +2,27 @@
  * Required to make tests pass (some dependency problem)
  * @jest-environment node
  */
-import handler, {getResultsFromDatabase} from '../../../pages/api/lookup';
+import handler from '../../../pages/api/lookup';
 import {createMocks} from 'node-mocks-http';
 
+// TODO: make ci pass in the future.
 describe('Test lookup api', () => {
     beforeAll(async () => {
         // @ts-ignore
-        getResultsFromDatabase.find = jest.fn().mockReturnValueOnce([{name: "test"}]);
+        // getResultsFromDatabase.find = jest.fn().mockReturnValue([{name: "test"}]);
+        const mockMongoInstance = {
+            db: jest.fn().mockReturnValue({
+                collection: jest.fn().mockReturnValue({
+                    find: jest.fn().mockReturnValue({
+                        toArray: jest.fn().mockReturnValue([{name: "test"}])
+                    })
+                })
+            })
+        }
+        // @ts-ignore
+        handler.client = {
+            connect: mockMongoInstance,
+        }
     })
 
     test('lookup handler returns 404 on invalid input', () => {

@@ -16,14 +16,13 @@ export default function DataTable({
                 </thead>
                 <tbody>
                 {dataList.map((data: DatabaseDataFields, index: number) => {
-                    const timeAddedToDate = new Date(data.added);
-                    const timeAddedToLookupFormatted = `${timeAddedToDate.getDay()}.${timeAddedToDate.getMonth()}.${timeAddedToDate.getFullYear()}`;
+                    const timeAddedDate = data.added.split("T")[0]
                     return (
                         <tr key={index}>
-                            <td>{data.name}</td>
-                            <td>{data.breach_date}</td>
-                            <td>{data.lines}</td>
-                            <td>{timeAddedToLookupFormatted}</td>
+                            <td>{data.database_name}</td>
+                            {renderBreachDate(data.breach_date)}
+                            <td>{data.lines_in_database}</td>
+                            <td>{timeAddedDate}</td>
                         </tr>
                     );
                 })}
@@ -31,4 +30,11 @@ export default function DataTable({
             </table>
         </div>
     );
+}
+
+function renderBreachDate(breachDate: string) {
+    if (breachDate == null) {
+        return <td>unknown</td>
+    }
+    return <td>{breachDate}</td>
 }
