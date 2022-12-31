@@ -6,7 +6,6 @@ export default function LookUpOptionButtons({
     const buttons = ["email", "domain", "name"];
     // We will add more modes here once we figure out what they are.
     return (
-        <div className="flex flex-wrap justify-center align-center">
             <div
                 className="btn-group w-full justify-center"
                 onChange={(e) =>
@@ -15,7 +14,6 @@ export default function LookUpOptionButtons({
             >
                 {renderButtons(buttons)}
             </div>
-        </div>
     );
 }
 
