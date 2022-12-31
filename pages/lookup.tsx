@@ -1,7 +1,6 @@
 import {NextPage} from "next/types";
 import {useRef, useState} from "react";
 import TextInput from "../components/TextInput";
-import LookupOptions from "../components/LookupOptions";
 import LookUpOptionButtons from "../components/LookUpOptionButtons";
 import isValidQuery from "../lib/FrontEndValidation";
 import requestToLookupApi from "../lib/queryEndpoint";
@@ -107,11 +106,8 @@ const Lookup: NextPage = () => {
                         Datalist
                     </Link>
                 </li>
-                <li>
-                    <Link href="signOut">Sign out</Link>
-                </li>
             </NavbarTwoColumns>
-            <LookupOptions isWildcard={isWildcard} setWildcard={setWildcard}/>
+            {/*<LookupOptions isWildcard={isWildcard} setWildcard={setWildcard}/>*/}
             <LookUpOptionButtons setLookupOptionState={setLookupOption}/>
             <div className="flex justify-center">
                 <TextInput
@@ -126,7 +122,7 @@ const Lookup: NextPage = () => {
             {renderQueryInformation(databaseResults, isFetched, timeTook)}
             <div className={"grid m-auto w-5/6"}>
                 <div className="flex flex-wrap gap-1 justify-center items-center">
-                    {renderDatabaseResults(databaseResults, isFetched, isDatabaseError)}
+                        {renderDatabaseResults(databaseResults, isFetched, isDatabaseError)}
                 </div>
             </div>
         </>

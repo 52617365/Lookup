@@ -4,7 +4,7 @@ import {ThemeProvider} from "next-themes";
 
 function MyApp({Component, pageProps: {session, ...pageProps}}: AppProps) {
     return (
-        <ThemeProvider defaultTheme="corporate">
+        <ThemeProvider defaultTheme="night">
             <Component {...pageProps} />
         </ThemeProvider>
     );

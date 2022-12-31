@@ -1,7 +1,7 @@
 export default function LookUpOptionButtons({
                                                 setLookupOptionState,
                                             }: {
-    setLookupOptionState: any; // TODO: figure out type.
+    setLookupOptionState: any;
 }) {
     // We will add more modes here once we figure out what they are.
     return (
@@ -12,38 +12,6 @@ export default function LookUpOptionButtons({
                     setLookupOptionState((e.target as HTMLInputElement).value)
                 }
             >
-                <input
-                    style={{minWidth: 80}}
-                    type="radio"
-                    name="options"
-                    value={"username"}
-                    data-title={"username"}
-                    className="btn glass btn-sm text-xs text-black"
-                />
-                <input
-                    style={{minWidth: 80}}
-                    type="radio"
-                    name="options"
-                    value={"password"}
-                    data-title={"password"}
-                    className="btn glass btn-sm text-xs text-black"
-                />
-                <input
-                    style={{minWidth: 80}}
-                    type="radio"
-                    name="options"
-                    value={"email"}
-                    data-title={"email"}
-                    className="btn glass btn-sm text-xs text-black"
-                />
-                <input
-                    style={{minWidth: 80}}
-                    type="radio"
-                    name="options"
-                    value={"ipaddress"}
-                    data-title={"ip"}
-                    className="btn glass btn-sm text-xs text-black"
-                />
             </div>
             <div
                 className="btn-group w-full justify-center"
@@ -51,20 +19,21 @@ export default function LookUpOptionButtons({
                     setLookupOptionState((e.target as HTMLInputElement).value)
                 }
             >
+                <input
+                    style={{minWidth: 80}}
+                    type="radio"
+                    name="options"
+                    value={"email"}
+                    data-title={"email"}
+                    // className="btn glass btn-sm text-xs text-black"
+                    className={"btn bg-inherit hover:text-cyan-400"}
+                />
                 <input style={{minWidth: 80}}
                        type="radio"
                        name="options"
                        value={"domain"}
                        data-title={"domain"}
-                       className="btn glass btn-sm text-xs text-black"
-                />
-                <input
-                    style={{minWidth: 80}}
-                    type="radio"
-                    name="options"
-                    value={"fb id"}
-                    data-title={"facebookid"}
-                    className="btn glass btn-sm text-xs text-black"
+                       className={"btn bg-inherit hover:text-cyan-400"}
                 />
                 <input
                     style={{minWidth: 80}}
@@ -72,15 +41,7 @@ export default function LookUpOptionButtons({
                     name="options"
                     value={"name"}
                     data-title={"name"}
-                    className="btn glass btn-sm text-xs text-black"
-                />
-                <input
-                    style={{minWidth: 80}}
-                    type="radio"
-                    name="options"
-                    value={"zipcode"}
-                    data-title={"postcode"}
-                    className="btn glass btn-sm text-xs text-black"
+                    className={"btn bg-inherit hover:text-cyan-400"}
                 />
             </div>
         </div>

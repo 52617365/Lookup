@@ -1,8 +1,9 @@
-import type { NextPage } from "next";
-import LoginForm from "../components/LoginForm";
+import type {NextPage} from "next";
+import Lookup from "./lookup";
 
 const Home: NextPage = () => {
-  return <LoginForm />;
+    return <Lookup/>
+    // return <LoginForm />;
 };
 
 export default Home;

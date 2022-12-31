@@ -44,7 +44,7 @@ export default () => {
                     Don't have an account?{" "}
                     <Link
                         className="font-medium hover:underline"
-                        href="/register"
+                        href="/ignored_pages/register"
                     >
                         Sign Up
                     </Link>

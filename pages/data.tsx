@@ -14,9 +14,6 @@ function Data({dataList}: { dataList: Array<DatabaseDataFields> }) {
                 <li className={"mr-5"}>
                     <Link href="/lookup">Lookup</Link>
                 </li>
-                <li>
-                    <Link href="signOut">Sign out</Link>
-                </li>
             </NavbarTwoColumns>
             <DataTable dataList={dataList}/>
         </div>

@@ -22,7 +22,6 @@ module.exports = {
             // => @media (min-width: 1536px) { ... } (changed to 1700px)
         },
         extend: {},
-
     },
     plugins: [require('daisyui')],
 }
